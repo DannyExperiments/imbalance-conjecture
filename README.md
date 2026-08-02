@@ -2,6 +2,7 @@
 
 [![Repository verification](https://github.com/DannyExperiments/imbalance-conjecture/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/imbalance-conjecture/actions/workflows/verify.yml)
 [![PDF build](https://github.com/DannyExperiments/imbalance-conjecture/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/imbalance-conjecture/actions/workflows/pdf.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21762476.svg)](https://doi.org/10.5281/zenodo.21762476)
 
 [Paper (PDF)](paper/manuscript.pdf) ·
 [Independent proof](proof/PROBLEM_AND_PROOF.md) ·
@@ -141,3 +142,13 @@ See [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) and [`PROVENANCE.md`](PROVENANCE.md).
 Human specialist review has not been obtained. The repository records an
 AI-generated, human-curated independent proof and extensions, not journal
 acceptance or a first solution of the conjecture.
+
+## Citation
+
+For a stable citation to this repository, use the concept DOI
+[10.5281/zenodo.21762476](https://doi.org/10.5281/zenodo.21762476). The exact archived
+release `v1.1.1` is [10.5281/zenodo.21762477](https://doi.org/10.5281/zenodo.21762477). GitHub's
+**Cite this repository** menu reads the machine-readable metadata in
+[`CITATION.cff`](CITATION.cff).
+
+The DOI below identifies this independent proof and its extensions. For the earlier proof of the original Imbalance Conjecture, also cite A. A. Raoui, DOI 10.5281/zenodo.20589431.
