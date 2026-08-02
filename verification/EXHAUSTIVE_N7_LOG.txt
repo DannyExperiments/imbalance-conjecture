@@ -1,0 +1,2 @@
+ALL_N7_CHECKS_PASS
+graphs 2097152 locally_irregular_nonempty 131705 at_most_one_zero 595008 threshold_sets 3162929 equality_sets 6524 r0_repairs 21 min_threshold_deficit 0

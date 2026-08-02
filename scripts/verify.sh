@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_dir"
+
+fail() {
+  echo "ERROR: $*" >&2
+  exit 1
+}
+
+required=(
+  README.md STATUS.md AI_DISCLOSURE.md PROVENANCE.md MANIFEST.md CITATION.cff
+  RELEASE_CHECKLIST.md LICENSE_STATUS.md REPRODUCIBILITY.md
+  proof/ORIGINAL_PROBLEM.md
+  proof/PROBLEM_AND_PROOF.md
+  proof/EXTENSIONS_AND_STRENGTHENINGS.md
+  proof/EXTENSIONS_ERRATA.md
+  audits/MATHEMATICAL_AUDIT.md
+  audits/LITERATURE_PRIORITY_AUDIT.md
+  audits/CLAIMS_EVIDENCE_MATRIX.md
+  audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md
+  auxiliary/README.md
+  auxiliary/imbalance_breakthrough_verifier.py
+  auxiliary/imbalance_breakthrough_verifier.log
+  auxiliary/imbalance_extensions_verifier.py
+  auxiliary/imbalance_extensions_verifier.log
+  auxiliary/imbalance_independent_referee_checker.py
+  auxiliary/imbalance_independent_referee_checker.log
+  auxiliary/imbalance_exhaustive_n7.cpp
+  auxiliary/imbalance_exhaustive_n7.log
+  verification/imbalance_independent_referee_checker.py
+  verification/INDEPENDENT_CHECKER_LOG.txt
+  verification/imbalance_exhaustive_n7.cpp
+  verification/EXHAUSTIVE_N7_LOG.txt
+  formalization/README.md
+  formalization/ARISTOTLE_STAGE1_STATUS.md
+)
+
+for path in "${required[@]}"; do
+  [[ -f "$path" ]] || fail "missing required file: $path"
+done
+
+cmp -s auxiliary/imbalance_independent_referee_checker.py \
+  verification/imbalance_independent_referee_checker.py \
+  || fail "independent Python source differs between auxiliary and verification copies"
+cmp -s auxiliary/imbalance_independent_referee_checker.log \
+  verification/INDEPENDENT_CHECKER_LOG.txt \
+  || fail "independent Python output differs between auxiliary and verification copies"
+cmp -s auxiliary/imbalance_exhaustive_n7.cpp \
+  verification/imbalance_exhaustive_n7.cpp \
+  || fail "independent C++ source differs between auxiliary and verification copies"
+cmp -s auxiliary/imbalance_exhaustive_n7.log \
+  verification/EXHAUSTIVE_N7_LOG.txt \
+  || fail "independent C++ output differs between auxiliary and verification copies"
+
+for forbidden in sources notes paper/candidates paper/drafts handoffs; do
+  [[ ! -e "$forbidden" ]] || fail "private-only path present: $forbidden"
+done
+
+if rg -n 'sandbox:/|/mnt/data|/Users/|chatgpt\.com/g/' \
+  --glob '!SHA256SUMS.txt' \
+  --glob '!scripts/verify.sh' .; then
+  fail "private or ephemeral path found"
+fi
+
+rg -q 'COMPLETE_PROOF_AI_AUDIT_PASS_APPARENTLY_NEW_MODERATE_CONFIDENCE_V2_1_INSTALLED_FINAL_MANUSCRIPT_AUDIT_PASS' STATUS.md \
+  || fail "status marker missing"
+rg -qi 'apparently new' README.md || fail "qualified novelty language missing"
+rg -qi 'Human specialist review.*have not been obtained' README.md \
+  || fail "human-review nonclaim missing"
+rg -q 'No completed Lean, Isabelle, Coq, or Aristotle certificate' formalization/README.md \
+  || fail "formalization boundary missing"
+rg -q 'ended at the platform time limit' formalization/ARISTOTLE_STAGE1_STATUS.md \
+  || fail "timed-out Aristotle status missing"
+
+if [[ -f paper/manuscript.tex ]]; then
+  rg -n '\\author\s*\{' paper/manuscript.tex && fail "manuscript must not contain an author command"
+  rg -n -i 'literature (and |/ )?priority audit.*pending|novelty.*not asserted' paper/manuscript.tex \
+    && fail "stale pre-literature manuscript language found"
+  rg -q 'pp\.~81--100' paper/manuscript.tex \
+    || fail "authoritative 2023 page range missing from manuscript"
+  rg -q 'one Scholar-indexed citation to the 2014 paper that could not be independently identified' \
+    paper/manuscript.tex \
+    || fail "complete five-gap disclosure missing from manuscript"
+  rg -q 'title[[:space:]]*=.*Graphs with graphic imbalance sequences' paper/references.bib \
+    || fail "exact MathOverflow title missing from bibliography"
+  rg -q 'pages[[:space:]]*=.*81--100' paper/references.bib \
+    || fail "authoritative 2023 bibliography page range missing"
+  ! rg -q 'pp\.~81--96|Residual source gaps comprise' paper/manuscript.tex \
+    || fail "superseded Version 2 source wording remains"
+fi
+
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$tmp_dir"' EXIT
+
+python3 verification/imbalance_independent_referee_checker.py > "$tmp_dir/python.log"
+cmp -s "$tmp_dir/python.log" verification/INDEPENDENT_CHECKER_LOG.txt \
+  || fail "independent Python output differs from frozen log"
+
+c++ -std=c++20 -O3 -Wall -Wextra -pedantic \
+  verification/imbalance_exhaustive_n7.cpp \
+  -o "$tmp_dir/imbalance_exhaustive_n7" 2> "$tmp_dir/cxx.log"
+[[ ! -s "$tmp_dir/cxx.log" ]] || fail "C++ compilation produced diagnostics"
+"$tmp_dir/imbalance_exhaustive_n7" > "$tmp_dir/n7.log"
+cmp -s "$tmp_dir/n7.log" verification/EXHAUSTIVE_N7_LOG.txt \
+  || fail "exhaustive C++ output differs from frozen log"
+
+if [[ -f SHA256SUMS.txt ]]; then
+  shasum -a 256 -c SHA256SUMS.txt
+fi
+
+if [[ "${REQUIRE_RELEASE_PAPER:-0}" == "1" ]]; then
+  [[ -f paper/manuscript.tex ]] || fail "release manuscript TeX missing"
+  [[ -f paper/manuscript.pdf ]] || fail "release manuscript PDF missing"
+  [[ -f paper/references.bib ]] || fail "release bibliography missing"
+  [[ -f paper/latexmkrc ]] || fail "release latexmk configuration missing"
+  [[ -f paper/BUILD_LOG.txt ]] || fail "release build log missing"
+  [[ -f paper/PDF_PREFLIGHT.txt ]] || fail "release PDF preflight missing"
+  [[ -f paper/V2_CHANGELOG.md ]] || fail "release manuscript changelog missing"
+  [[ -f paper/V2_TO_V2_1_CHANGELOG.md ]] || fail "Version 2-to-2.1 changelog missing"
+  [[ -f paper/SOURCE_TO_MANUSCRIPT_COMPARISON.md ]] || fail "release source comparison missing"
+  [[ -f paper/MATHEMATICAL_PRESERVATION_V2_TO_V2_1.json ]] \
+    || fail "Version 2-to-2.1 mathematical preservation record missing"
+  [[ -f paper/PDF_RENDER_DIFF_SUMMARY_V2_TO_V2_1.json ]] \
+    || fail "Version 2-to-2.1 render comparison missing"
+  [[ -f paper/PDF_TEXT_REFERENCE_SCAN_V2_1.txt ]] \
+    || fail "Version 2.1 PDF text/reference scan missing"
+  rg -q 'INDEPENDENT_FINAL_MANUSCRIPT_AUDIT: PASS' audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md \
+    || fail "final manuscript audit PASS is absent"
+fi
+
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git diff --check
+fi
+
+echo "Public-release candidate integrity and disclosure checks passed."

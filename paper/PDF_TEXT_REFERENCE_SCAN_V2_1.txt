@@ -1,0 +1,44 @@
+THE IMBALANCE CONJECTURE — VERSION 2.1 PDF TEXT REFERENCE SCAN
+==============================================================
+
+Extraction tool: Poppler pdftotext 25.06.0
+Mode: layout-preserving extraction followed by whitespace normalization
+Pages extracted: 15
+
+REQUIRED ACTIVE TEXT
+--------------------
+
+PASS — Exact MathOverflow title:
+Graphs with graphic imbalance sequences
+
+PASS — Authoritative article pagination:
+Kozerenko--Serdiuk, Opuscula Mathematica 43(1) (2023), 81–100
+
+PASS — Exact residual-source-gap sentence after whitespace normalization:
+Residual source gaps include an ambiguous inaccessible 2025 Serdiuk listing, an unidentified AI-summary/search snippet, one Scholar-indexed citation to the 2014 paper that could not be independently identified, incomplete subscription-database coverage, and possible unindexed or unpublished work.
+
+PASS — Qualified status language:
+A documented search through August 1, 2026 found no retrievable earlier complete solution for finite simple graphs. The main and strengthened results are therefore apparently new with moderate novelty confidence. Absolute historical priority is not claimed.
+
+PASS — Verification limitation:
+Human specialist review and proof-assistant verification have not been obtained.
+
+SUPERSEDED ACTIVE TEXT
+----------------------
+
+PASS — Superseded MathOverflow-title string absent.
+PASS — Superseded Kozerenko--Serdiuk page-range string absent.
+PASS — Prior four-gap sentence absent.
+PASS — Four-gap accounting language absent.
+
+OVERCLAIM SCAN
+--------------
+
+PASS — No first-proof claim.
+PASS — No absolute historical-priority claim.
+PASS — No assertion of human peer review.
+PASS — No assertion of proof-assistant or formal verification.
+PASS — No DOI assignment, submission, acceptance, affiliation, or publication claim.
+PASS — No unsupported theorem for graphs with two or more equal-degree edges or other excluded source classes.
+
+FINAL TEXT-SCAN VERDICT: PASS

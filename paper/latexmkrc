@@ -1,0 +1,4 @@
+$pdf_mode = 1;
+$bibtex = 'bibtex8 %O %B';
+$pdf_previewer = 'none';
+

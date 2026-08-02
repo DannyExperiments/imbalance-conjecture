@@ -1,0 +1,114 @@
+{
+  "baseline_pages": 15,
+  "changed_pages": 3,
+  "dpi": 180,
+  "engine": "pdftoppm",
+  "per_page": [
+    {
+      "change_bbox_pixels": [
+        409,
+        894,
+        803,
+        922
+      ],
+      "changed": true,
+      "page": 1,
+      "percent_pixels_changed": 0.0011552652946628403
+    },
+    {
+      "change_bbox_pixels": [
+        179,
+        748,
+        1310,
+        840
+      ],
+      "changed": true,
+      "page": 2,
+      "percent_pixels_changed": 0.009121203951702827
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 3,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 4,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 5,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 6,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 7,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 8,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 9,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 10,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 11,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 12,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 13,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": null,
+      "changed": false,
+      "page": 14,
+      "percent_pixels_changed": 0.0
+    },
+    {
+      "change_bbox_pixels": [
+        220,
+        588,
+        1310,
+        747
+      ],
+      "changed": true,
+      "page": 15,
+      "percent_pixels_changed": 0.004804831631489195
+    }
+  ],
+  "version_2_1_pages": 15
+}

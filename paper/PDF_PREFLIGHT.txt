@@ -1,0 +1,99 @@
+THE IMBALANCE CONJECTURE — VERSION 2.1 PDF PREFLIGHT
+====================================================
+
+FILE
+----
+
+File: manuscript.pdf
+SHA-256: d7282af267d46969f0847e88d00fa89e2b1c6bd06cc1afa29a8b2332d7dcccac
+File size: 352,704 bytes
+Pages: 15
+PDF version: 1.7
+Page size: 595.276 × 841.89 pt (A4)
+Rotation: 0
+Encrypted: no
+Openable with PyMuPDF: yes
+Likely scanned: no
+XFA: absent
+JavaScript: absent
+Forms: absent
+
+METADATA
+--------
+
+Title: The Imbalance Conjecture
+Subject: A proof of the Imbalance Conjecture, a threshold-set strengthening, and a one-equal-edge extension
+Author: blank
+Creator: LaTeX with hyperref
+Producer: pdfTeX-1.40.26
+
+No author command occurs in the TeX source. The PDF metadata contains no affiliation, DOI, submission, acceptance, journal, peer-review, formal-verification, or first-proof claim.
+
+REFERENCES, WARNINGS, AND BOXES
+-------------------------------
+
+Undefined citations: 0
+Undefined references: 0
+Multiply defined labels: 0
+LaTeX warnings: 0
+BibTeX warnings: 0
+Overfull hboxes/vboxes: 0
+Underfull hboxes/vboxes: 0
+Unresolved markers `??` or `[?]`: 0
+
+FONTS AND TEXT
+--------------
+
+Embedded fonts: 21
+All fonts embedded: yes
+All fonts subsetted: yes
+Unicode mapping present for every font: yes
+Searchable text: yes
+Unicode replacement characters in extracted text: 0
+Extracted page separators: 15
+
+The embedded fonts are the Computer Modern and AMS Type 1 families used by the TeX build. No font file is distributed separately.
+
+SOURCE-REFERENCE TEXT CHECK
+---------------------------
+
+Exact corrected MathOverflow title present: yes
+Authoritative Kozerenko--Serdiuk page range present: yes
+Exact five-gap sentence present after whitespace normalization: yes
+Superseded MathOverflow title absent: yes
+Superseded Kozerenko--Serdiuk page range absent: yes
+Superseded four-gap sentence absent: yes
+Qualified novelty statement present: yes
+Absolute-priority disclaimer present: yes
+Human-review and proof-assistant disclaimers present: yes
+
+VISUAL INSPECTION
+-----------------
+
+The PDF was rendered at 180 dpi with the Poppler renderer. Every page was inspected for clipping, overlap, broken glyphs, malformed equations, displaced labels, accidental blank regions, and excessive display fragmentation.
+
+01  PASS — title, five-sentence abstract, opening history, corrected page range, boxed conjecture, and first-page answer are readable and unclipped.
+02  PASS — five-gap sentence wraps cleanly; theorem statement, threshold definition, and section transition remain balanced.
+03  PASS — exact deficit identity and head-reserve derivation are legible; no equation collision.
+04  PASS — reserve completion and active-set definitions are legible.
+05  PASS — residual incidence, parity bound, convex estimate, and global cross-payment are legible.
+06  PASS — profile algebra and boundary cases are legible; no split-equation damage.
+07  PASS — first-failure deduction and quantitative theorem begin cleanly.
+08  PASS — profile sharpening, explicit `h=2` subcases, and threshold-equality theorem are legible.
+09  PASS — equality classification, target rigidity, and zero-edge section transition are legible.
+10  PASS — `Z1`--`Z8` setup and all-head active-set repair are readable.
+11  PASS — one-equal-edge theorem, `r=0` boundary, and exceptional profile are readable.
+12  PASS — single-head one-zero closure and corollary section are readable.
+13  PASS — standard reformulations, verification/provenance section, and appendix opening are readable.
+14  PASS — counterpacket and non-load-bearing computational appendix are readable; fixed deficit list remains balanced.
+15  PASS — all 18 references are readable; corrected title and page range render without clipping or malformed wrapping.
+
+RENDER COMPARISON WITH VERSION 2
+--------------------------------
+
+Page count unchanged: 15
+Changed pages: 1, 2, 15
+Pixel-identical pages at 180 dpi: 3--14
+Mathematical pages changed: none
+
+FINAL PREFLIGHT VERDICT: PASS

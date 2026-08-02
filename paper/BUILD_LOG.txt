@@ -1,0 +1,80 @@
+THE IMBALANCE CONJECTURE — VERSION 2.1 BUILD LOG
+================================================
+
+Version date: 2026-08-02
+Network access: NONE
+Build mode: fresh temporary directory
+TeX orchestration: latexmk 4.86
+Bibliography tool: bibtex8 0.99d-x4.02, release 4.02
+TeX engine: pdfTeX 3.141592653-2.6-1.40.26
+
+BUILD COMMANDS
+--------------
+
+latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
+
+The first invocation completed successfully and generated the bibliography with bibtex8. The second invocation reported that all targets were up to date.
+A separate final clean validation build, using the same source and fixed build timestamp, reproduced `manuscript.pdf` byte-for-byte with the same SHA-256.
+
+FINAL BUILD RESULT
+------------------
+
+Exit status: 0
+PDF pages: 15
+PDF size: 352,704 bytes
+PDF SHA-256: d7282af267d46969f0847e88d00fa89e2b1c6bd06cc1afa29a8b2332d7dcccac
+Page size: A4, 595.276 × 841.89 pt
+Undefined citations: 0
+Undefined references: 0
+Multiply defined labels: 0
+LaTeX warnings: 0
+BibTeX warnings: 0
+Overfull hboxes/vboxes: 0
+Underfull hboxes/vboxes: 0
+
+SOURCE-FAITHFULNESS RESULT
+--------------------------
+
+Corrected MathOverflow title present: YES
+Authoritative Kozerenko--Serdiuk page range present: YES
+Exact five-gap sentence present: YES
+Superseded active bibliography wording absent: YES
+Qualified novelty wording preserved: YES
+Human specialist review not obtained statement preserved: YES
+Proof-assistant verification not obtained statement preserved: YES
+
+MATHEMATICAL PRESERVATION RESULT
+--------------------------------
+
+Labeled display environments: 79/79 exact
+Lemma statements: 4/4 exact
+Corollary statements: 3/3 exact
+Theorem statements/scopes: 5/5 exact
+Mathematical labels: 100/100 exact and unique
+Proof environments: 11/11 exact
+Proof paragraphs: 38/38 exact
+Any mathematical text changed: NO
+
+PDF VALIDATION RESULT
+---------------------
+
+PDF preflight: PASS
+All fonts embedded: YES
+All fonts subsetted: YES
+Unicode mapping for every font: YES
+Searchable text: YES
+Visual inspection of all 15 pages: PASS
+Pages changed relative to Version 2 render: 1, 2, 15 only
+Pages 3--14 pixel-identical to Version 2 at 180 dpi: YES
+
+PUBLIC-SAFETY RESULT
+--------------------
+
+Forbidden filesystem paths: 0
+Sandbox links: 0
+ChatGPT URLs or tracking parameters: 0
+Credential-like secrets: 0
+Embedded predecessor archives: 0
+Third-party PDFs: 0
+Manuscript PDFs in package: 1

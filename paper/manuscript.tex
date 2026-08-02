@@ -1,0 +1,960 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={The Imbalance Conjecture},
+  pdfauthor={},
+  pdfsubject={A proof of the Imbalance Conjecture, a threshold-set strengthening, and a one-equal-edge extension},
+  pdfkeywords={graphical sequence, edge imbalance, Erdős--Gallai theorem, locally irregular graph}
+}
+
+\numberwithin{equation}{section}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Ical}{\mathcal I}
+\newcommand{\TV}{\operatorname{TV}}
+\newcommand{\hi}{\operatorname{hi}}
+\newcommand{\lo}{\operatorname{lo}}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\E}{\mathbb E}
+
+\title{The Imbalance Conjecture}
+\date{August 2, 2026}
+\subjclass[2020]{05C07, 05C35, 05C70}
+\keywords{graphical sequence, degree sequence, edge imbalance, Erd\H{o}s--Gallai theorem, locally irregular graph}
+
+\begin{document}
+
+\begin{abstract}
+For a finite simple graph $G$, its edge-imbalance multiset is $\Ical(G)=\{\lvert d_G(u)-d_G(v)\rvert:uv\in E(G)\}$, with multiplicity.
+We prove the Imbalance Conjecture of Kozerenko and Skochko: for every finite simple graph in which adjacent vertices have unequal degrees, the multiset of endpoint-degree differences is graphical.
+More strongly, if $S\subseteq E(G)$ has $k$ edges and every edge of $S$ has imbalance at least $k$, then $S$ satisfies the corresponding subset Erd\H{o}s--Gallai inequality, whether or not $S$ consists of the largest imbalances.
+We obtain quantitative slack and classify every equality case of this threshold theorem.
+Finally, we prove that the full edge-imbalance multiset remains graphical when at most one edge of $G$ joins equal-degree vertices.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and exact statement}
+
+On August 30, 2013, Sergiy Kozerenko asked on MathOverflow whether the endpoint-degree differences along the edges of a graph whose adjacent vertices have unequal degrees must form a graphical multiset \cite{KozerenkoMO2013}.  Kozerenko and Skochko gave the published formulation and proved several source classes in 2014, pp.~97--108 \cite{KozerenkoSkochko2014}; Kozerenko and Serdiuk retained the universal statement as Conjecture~5.5 in their article published online on December~30, 2022 (bibliographic year 2023), pp.~81--100 \cite{KozerenkoSerdiuk2023}.  The exact conjecture is:
+\begin{center}
+\fbox{\begin{minipage}{0.86\textwidth}
+If $G$ is a finite simple graph and $d_G(u)\ne d_G(v)$ for every edge $uv\in E(G)$, then the multiset
+\[
+\bigl\{\lvert d_G(u)-d_G(v)\rvert:uv\in E(G)\bigr\}
+\]
+is the degree multiset of a finite simple graph. \hfill\textup{(IC)}
+\end{minipage}}
+\end{center}
+We prove (IC) affirmatively for every finite simple graph satisfying its displayed hypothesis; the result is neither a counterexample nor a theorem restricted to a special source class.
+
+Kozerenko and Skochko verified the conjecture through source order nine in addition to their class results \cite{KozerenkoSkochko2014}.  Kozerenko later proved a nearby theorem in which positivity of all edge imbalances guarantees realization by a \emph{multigraph} \cite[pp.~50--62]{Kozerenko2019}; allowing a multigraph target is strictly weaker than the finite-simple-graph conclusion proved here.  Kozerenko and Serdiuk reported verification through source order twelve, but continued to state the simple-graph assertion as Conjecture~5.5 \cite{KozerenkoSerdiuk2023}.
+
+A finite sequence of nonnegative integers is called \emph{graphical} if it is the degree sequence of a finite simple graph.  A graph in which adjacent vertices have unequal degrees is commonly called \emph{locally irregular} \cite{RautenbachVolkmann2002}; the associated total imbalance belongs to the irregularity theory initiated by Albertson \cite{Albertson1997}.  We write
+\[
+w_G(uv)=\lvert d_G(u)-d_G(v)\rvert
+\]
+for the imbalance of an edge, and call
+\[
+\Ical(G)=\bigl\{w_G(e):e\in E(G)\bigr\}
+\]
+the \emph{edge-imbalance multiset}, with multiplicity.  This edge-indexed absolute-difference notion is distinct from signed vertex imbalance in directed-graph realization theory \cite{MubayiWillWest2001}.  Isolated vertices of $G$ do not affect $\Ical(G)$.
+
+We shall use the Erd\H{o}s--Gallai criterion \cite{ErdosGallai1960}: a nonincreasing integer sequence $d_1\ge\cdots\ge d_n\ge0$ is graphical if and only if its sum is even and, for every $1\le k\le n$,
+\begin{equation}
+\sum_{i=1}^k d_i
+\le k(k-1)+\sum_{i=k+1}^n\min\{k,d_i\}.
+\tag{EG}
+\end{equation}
+The arbitrary-subset form of this criterion was already part of the original MathOverflow discussion and was recorded in Kozerenko's 2019 treatment \cite{KozerenkoMO2013,Kozerenko2019}.  Likewise, reductions to strong or reduced indices are prior degree-sequence machinery \cite{ZverovichZverovich1992,TripathiVijay2003}.  The new source-graph statement proved below is different: every $k$-edge set whose members all have source imbalance at least $k$ is forced to satisfy the corresponding known subset inequality.  Earlier threshold work on imbalanced edges controlled extremal counts rather than this Erd\H{o}s--Gallai deficit \cite{RautenbachSchiermeyer2006}.
+
+\begin{theorem}[Imbalance Conjecture]\label{thm:main}
+If $G$ is a finite simple locally irregular graph, then $\Ical(G)$ is graphical.
+\end{theorem}
+
+A documented search through August 1, 2026 found no retrievable earlier complete solution for finite simple graphs.  The main and strengthened results are therefore apparently new with moderate novelty confidence.  Absolute historical priority is not claimed.  Residual source gaps include an ambiguous inaccessible 2025 Serdiuk listing, an unidentified AI-summary/search snippet, one Scholar-indexed citation to the 2014 paper that could not be independently identified, incomplete subscription-database coverage, and possible unindexed or unpublished work.
+
+\section{The arbitrary threshold-set theorem}
+
+Fix a finite simple locally irregular graph $G$, put $m=\lvert E(G)\rvert$, and abbreviate $d_G(v)$ to $d(v)$ and $w_G(e)$ to $w(e)$.  For an edge set $S\subseteq E(G)$ of cardinality $k$, define its \emph{subset Erd\H{o}s--Gallai deficit} by
+\begin{equation}
+D_G(S)
+=k(k-1)+\sum_{f\in E(G)\setminus S}\min\{k,w(f)\}
+       -\sum_{e\in S}w(e).
+\label{eq:def-D}
+\end{equation}
+Thus $D_G(S)\ge0$ is precisely the labeled subset form of the Erd\H{o}s--Gallai inequality for the edge-indexed vector $(w(e))_{e\in E(G)}$.
+
+\begin{theorem}[Arbitrary threshold-set theorem]\label{thm:threshold}
+Let $S\subseteq E(G)$ satisfy $\lvert S\rvert=k\ge1$ and
+\begin{equation}
+w(e)\ge k\qquad(e\in S).
+\label{eq:threshold-hyp}
+\end{equation}
+Then
+\[
+D_G(S)\ge0.
+\]
+The set $S$ need not consist of the $k$ largest edge imbalances.
+\end{theorem}
+
+When $S$ is a set of the $k$ largest imbalances, $D_G(S)$ is the usual $k$th Erd\H{o}s--Gallai deficit.  Sections~\ref{sec:reserve}--\ref{sec:threshold-completion} prove Theorem~\ref{thm:threshold}; the deduction of Theorem~\ref{thm:main} appears afterward.
+
+\section{The exact deficit identity and the head reserve}\label{sec:reserve}
+
+Assume throughout this section that $k\ge2$ and that $S$ satisfies \eqref{eq:threshold-hyp}.  Since $G$ is locally irregular, every edge has a unique higher-degree endpoint and a unique lower-degree endpoint.  For a selected edge $e$, denote them by $\hi(e)$ and $\lo(e)$.  For each vertex $v$, put
+\begin{equation}
+s_v=\bigl\lvert\{e\in S:\hi(e)=v\}\bigr\rvert,
+\qquad
+\ell_v=\bigl\lvert\{e\in S:\lo(e)=v\}\bigr\rvert,
+\label{eq:s-ell}
+\end{equation}
+and define
+\begin{equation}
+U=\{v:s_v>0\},\qquad h=\lvert U\rvert.
+\label{eq:U-h}
+\end{equation}
+We refer to $U$ as the set of selected high endpoints, or heads.  For an arbitrary edge $f=xy$, set
+\begin{equation}
+c_f=s_x+s_y,
+\qquad
+B=\sum_v\ell_v\bigl(d(v)-1\bigr).
+\label{eq:c-B}
+\end{equation}
+The nonnegative term $B$ records the selected low endpoints with multiplicity.
+
+\begin{lemma}[Exact deficit identity]\label{lem:identity}
+With the notation above,
+\begin{equation}
+D_G(S)
+=B+\sum_{f\in E(G)}\bigl(\min\{k,w(f)\}-c_f\bigr).
+\label{eq:exact-identity}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since every selected edge has truncated weight $k$,
+\begin{equation*}
+D_G(S)=\sum_{f\in E(G)}\min\{k,w(f)\}-k-\sum_{e\in S}w(e).
+\end{equation*}
+Moreover,
+\begin{equation}
+\sum_{f\in E(G)}c_f=\sum_v s_vd(v),
+\qquad
+\sum_{e\in S}w(e)=\sum_v s_vd(v)-\sum_v\ell_vd(v),
+\label{eq:incidence-sums}
+\end{equation}
+and $\sum_v\ell_v=k$.  Substitution into the right-hand side of \eqref{eq:exact-identity} gives
+\[
+\sum_f\min\{k,w(f)\}-\sum_v s_vd(v)
+ +\sum_v\ell_vd(v)-k,
+\]
+which equals $D_G(S)$ by \eqref{eq:incidence-sums}.
+\end{proof}
+
+The selected-edge part of the sum in \eqref{eq:exact-identity} is
+\begin{equation}
+P=\sum_{e\in S}(k-c_e).
+\label{eq:def-P}
+\end{equation}
+Because $c_e\le\sum_vs_v=k$, one has $P\ge0$, but the useful lower bound comes from combining $P$ with $B$.
+
+\begin{lemma}[Head reserve]\label{lem:reserve}
+Let $H=G-U$.  For $z\in V(H)$ define
+\begin{equation}
+q_z=\sum_{u\in N_G(z)\cap U}\bigl(s_u-\lvert d(u)-d(z)\rvert\bigr)_+,
+\qquad
+Q=\sum_{z\in V(H)}q_z,
+\label{eq:q-Q}
+\end{equation}
+and put
+\begin{equation}
+\TV_k(H)=\sum_{xy\in E(H)}\min\{k,\lvert d(x)-d(y)\rvert\}.
+\label{eq:TV}
+\end{equation}
+Here the degrees in \eqref{eq:TV} are the degrees in $G$, not in $H$.  Finally, define
+\begin{equation}
+\Psi(s)=\sum_{\{u,v\}\in\binom U2}
+       \bigl(2s_us_v-s_u-s_v+1\bigr).
+\label{eq:Psi}
+\end{equation}
+Then
+\begin{equation}
+D_G(S)\ge \TV_k(H)-Q+\Psi(s).
+\label{eq:reserve-inequality}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Allocate one copy of $d(v)-1$ from $B$ to every selected edge whose low endpoint is $v$.  If a selected edge has high endpoint $u$ and low endpoint $v$, its term from $P$ together with this allocated term is
+\begin{equation}
+(k-s_u-s_v)+(d(v)-1)=k-s_u+\bigl(d(v)-1-s_v\bigr).
+\label{eq:selected-allocation}
+\end{equation}
+If $v\notin U$, then $s_v=0$ and the parenthesized term is nonnegative.  If $v\in U$, then $v$ is itself the high endpoint of a selected edge of imbalance at least $k$; since the other endpoint of that edge has degree at least one, $d(v)\ge k+1$.  As $s_v\le k$, the parenthesized term in \eqref{eq:selected-allocation} is again nonnegative.  Summing over the $s_u$ selected edges with high endpoint $u$ gives
+\begin{equation}
+B+P\ge\sum_{u\in U}s_u(k-s_u)
+=k^2-\sum_{u\in U}s_u^2
+=2\sum_{\{u,v\}\in\binom U2}s_us_v.
+\label{eq:BP-reserve}
+\end{equation}
+
+Consider next an unselected edge $uv$ with both endpoints in $U$.  Its contribution to \eqref{eq:exact-identity} is at least
+\[
+1-s_u-s_v,
+\]
+because local irregularity gives $w(uv)\ge1$.  Simplicity gives at most one such edge for each unordered pair $\{u,v\}$.  Thus, even after paying the largest possible loss from every head pair, \eqref{eq:BP-reserve} leaves the reserve \eqref{eq:Psi}.
+
+For an unselected edge $uz$ with $u\in U$ and $z\in H$, the contribution is
+\[
+\min\{k,w(uz)\}-s_u
+\ge-\bigl(s_u-w(uz)\bigr)_+.
+\]
+A selected edge crossing from $U$ to $H$ has $w(e)\ge k\ge s_u$ and creates no demand.  Finally, every edge internal to $H$ contributes exactly its truncated imbalance.  Splitting \eqref{eq:exact-identity} into selected edges, unselected $U$--$U$ edges, unselected $U$--$H$ edges, and $H$--$H$ edges proves \eqref{eq:reserve-inequality}.
+\end{proof}
+
+The statement $\TV_k(H)\ge Q$ is false without additional hypotheses; Appendix~\ref{app:counterpacket} gives an exact counterpacket.  The surviving reserve $\Psi(s)$ is therefore essential.
+
+\section{Weighted cross-payment in the residual graph}\label{sec:cross-payment}
+
+Set
+\begin{equation}
+e_u=s_u-1\quad(u\in U),
+\qquad
+p=k-h=\sum_{u\in U}e_u.
+\label{eq:e-p}
+\end{equation}
+For $u\in U$ and $z\in V(H)$, write
+\begin{equation}
+q_{u,z}=\bigl(s_u-\lvert d(u)-d(z)\rvert\bigr)_+.
+\end{equation}
+Define the active residual set and its total demand by
+\begin{equation}
+A_u=\{z\in V(H):uz\in E(G),\ q_{u,z}>0\},
+\qquad
+Q_u=\sum_{z\in A_u}q_{u,z}.
+\label{eq:A-Qu}
+\end{equation}
+Then $Q=\sum_{u\in U}Q_u$.  Let $W_u$ be the total truncated weight of the edges of $H$ incident with at least one vertex of $A_u$, each such edge counted once:
+\begin{equation}
+W_u=\sum_{\substack{xy\in E(H)\\\{x,y\}\cap A_u\ne\varnothing}}
+       \min\{k,\lvert d(x)-d(y)\rvert\}.
+\label{eq:Wu}
+\end{equation}
+An edge of $H$ may occur in several different $W_u$; that multiplicity is handled explicitly in Corollary~\ref{cor:global-cross}.
+
+\begin{lemma}[One-head cross-payment]\label{lem:one-head-cross}
+For every $u\in U$,
+\begin{equation}
+pQ_u-e_uW_u\le \frac{e_u}{4}(k-e_u)^2.
+\label{eq:one-head-final}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $e_u=0$, then $s_u=1$.  Local irregularity gives $w(uz)\ge1$ for every incident edge, so $A_u=\varnothing$ and both sides of \eqref{eq:one-head-final} are zero.
+
+Assume $e_u>0$.  The vertex $u$ is the high endpoint of a selected edge of imbalance at least $k$.  Its selected low endpoint has degree at least one, so for an integer $a_u\ge0$ we may write
+\begin{equation}
+d(u)=k+1+a_u.
+\label{eq:def-au}
+\end{equation}
+Every active edge $uz$ has imbalance strictly smaller than $s_u=e_u+1\le k$, and hence is unselected.  If $n_u=\lvert A_u\rvert$, then
+\begin{equation}
+n_u\le d(u)-s_u=k-e_u+a_u.
+\label{eq:n-bound}
+\end{equation}
+
+Fix $z\in A_u$ and put $j=\lvert d(u)-d(z)\rvert$.  Positivity of the imbalance and activity give
+\begin{equation}
+1\le j\le e_u,
+\qquad
+q_{u,z}=e_u+1-j.
+\label{eq:j-q}
+\end{equation}
+Deleting the $h$ vertices of $U$ removes at most $h$ edges incident with $z$.  If $d(z)=d(u)-j$, then, using $k=p+h$,
+\begin{align}
+d_H(z)
+&\ge d(z)-h
+ =k+1+a_u-j-h\notag\\
+&=q_{u,z}+p-e_u+a_u.
+\label{eq:dH-bound}
+\end{align}
+If $d(z)=d(u)+j$, the same lower bound improves by $2j$.  Hence \eqref{eq:dH-bound} holds in all cases.
+
+Let $E_1(A_u)$ be the number of edges $xy\in E(H)$ with $x,y\in A_u$ and $\lvert d(x)-d(y)\rvert=1$.  Summing $d_H(z)$ over $A_u$ counts an edge with both ends in $A_u$ twice and an edge with exactly one end in $A_u$ once.  In comparison, $W_u$ counts an internal edge once with truncated weight.  An internal edge loses nothing when its imbalance is at least two, and loses exactly one when its imbalance is one.  An edge with only one active endpoint has truncated weight at least one.  Therefore
+\begin{equation}
+W_u\ge\sum_{z\in A_u}d_H(z)-E_1(A_u).
+\label{eq:W-incidence}
+\end{equation}
+The graph formed by the imbalance-one edges on $A_u$ is bipartite under the coloring $z\mapsto d(z)\pmod 2$.  If its two color classes have sizes $r$ and $n_u-r$, then
+\begin{equation}
+E_1(A_u)\le r(n_u-r)\le\left\lfloor\frac{n_u^2}{4}\right\rfloor.
+\label{eq:unit-Mantel}
+\end{equation}
+
+Combining \eqref{eq:dH-bound} and \eqref{eq:W-incidence} gives
+\[
+e_uW_u\ge e_uQ_u+e_un_u(p-e_u+a_u)-e_uE_1(A_u).
+\]
+After rearrangement,
+\begin{align}
+pQ_u-e_uW_u
+&\le e_uE_1(A_u)-e_ua_un_u
+ +(p-e_u)(Q_u-e_un_u)\notag\\
+&=e_uE_1(A_u)-e_ua_un_u
+ -(p-e_u)\sum_{z\in A_u}(e_u-q_{u,z}).
+\label{eq:pre-relax}
+\end{align}
+Here $p-e_u\ge0$ because $p=\sum_{v\in U}e_v$, and \eqref{eq:j-q} gives $q_{u,z}\le e_u$.  Consequently, by \eqref{eq:unit-Mantel},
+\begin{equation}
+pQ_u-e_uW_u
+\le e_u\left(\left\lfloor\frac{n_u^2}{4}\right\rfloor-a_un_u\right).
+\label{eq:local-convex}
+\end{equation}
+
+Put $R=k-e_u$.  By \eqref{eq:n-bound}, $0\le n_u\le R+a_u$.  The function $f(t)=t^2/4-a_ut$ is convex, so its maximum on $[0,R+a_u]$ is attained at an endpoint.  The endpoint values satisfy
+\[
+f(0)=0\le\frac{R^2}{4},
+\qquad
+f(R+a_u)=\frac{(R+a_u)(R-3a_u)}{4}\le\frac{R^2}{4}.
+\]
+Using $\lfloor n_u^2/4\rfloor\le n_u^2/4$ in \eqref{eq:local-convex} proves \eqref{eq:one-head-final}.
+\end{proof}
+
+\begin{corollary}[Global weighted cross-payment]\label{cor:global-cross}
+If $p>0$, then
+\begin{equation}
+p\bigl(Q-\TV_k(H)\bigr)
+\le\frac14\sum_{u\in U}e_u(k-e_u)^2.
+\label{eq:global-cross}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Summing Lemma~\ref{lem:one-head-cross} over $u$ gives
+\begin{equation}
+pQ-\sum_{u\in U}e_uW_u
+\le\frac14\sum_{u\in U}e_u(k-e_u)^2.
+\label{eq:sum-local}
+\end{equation}
+For a fixed edge $f\in E(H)$, its coefficient in $\sum_ue_uW_u$ is
+\[
+\sum_{\substack{u\in U:\\ f\text{ is incident with }A_u}}e_u
+\le\sum_{u\in U}e_u=p.
+\]
+Thus
+\[
+\sum_{u\in U}e_uW_u\le p\,\TV_k(H).
+\]
+Substituting this inequality into \eqref{eq:sum-local} in the direction
+\[
+p(Q-\TV_k(H))\le pQ-\sum_ue_uW_u
+\]
+proves \eqref{eq:global-cross}.
+\end{proof}
+
+\section{Completion of the threshold theorem}\label{sec:threshold-completion}
+
+We first treat the profile $h\ge2$ and $p>0$.  Put
+\begin{equation}
+S_2=\sum_{u\in U}e_u^2,
+\qquad
+S_3=\sum_{u\in U}e_u^3,
+\qquad
+C=\sum_{u\in U}e_u(k-e_u)^2.
+\label{eq:S2-S3-C}
+\end{equation}
+Since $s_u=e_u+1$, expansion of \eqref{eq:Psi} gives
+\begin{equation}
+\Psi=p^2-S_2+(h-1)p+\binom h2.
+\label{eq:Psi-expanded}
+\end{equation}
+Also, because $\sum_ue_u=p$ and $k=p+h$,
+\begin{equation}
+C=k^2p-2kS_2+S_3.
+\label{eq:C-expanded}
+\end{equation}
+A direct subtraction yields
+\begin{align}
+4p\Psi-C
+={}&3p^3+(2h-4)p^2+h(h-2)p\notag\\
+&+(2h-2p)S_2-S_3.
+\label{eq:gap-exact}
+\end{align}
+Since $0\le e_u\le p$, one has $S_3\le pS_2$.  Hence
+\begin{equation}
+4p\Psi-C
+\ge M+(2h-3p)S_2,
+\qquad
+M=p\bigl(3p^2+(2h-4)p+h(h-2)\bigr).
+\label{eq:gap-first-lower}
+\end{equation}
+If $2h\ge3p$, the last term is nonnegative and $M>0$.  If $2h<3p$, then $S_2\le p^2$ and multiplication by the negative coefficient reverses the useful extremum, giving
+\begin{align}
+4p\Psi-C
+&\ge M+(2h-3p)p^2\notag\\
+&=p\bigl(4(h-1)p+h(h-2)\bigr)>0.
+\label{eq:gap-second-lower}
+\end{align}
+Thus
+\begin{equation}
+\Psi>\frac{C}{4p}
+\qquad(h\ge2,\ p>0).
+\label{eq:reserve-dominates}
+\end{equation}
+Combining Lemma~\ref{lem:reserve}, Corollary~\ref{cor:global-cross}, and \eqref{eq:reserve-dominates}, we obtain
+\[
+D_G(S)\ge\TV_k(H)-Q+\Psi
+\ge-\frac{C}{4p}+\Psi>0.
+\]
+
+It remains to include the boundary profiles, where division by $p$ or the preceding strict estimate is unavailable.
+
+\paragraph{All selected heads are distinct: $p=0$.}
+Then $h=k$, every $s_u=1$, and local irregularity makes every demand in \eqref{eq:q-Q} zero.  Moreover, every summand in \eqref{eq:Psi} equals one, so
+\begin{equation}
+D_G(S)\ge\TV_k(H)+\binom{k}{2}\ge0.
+\label{eq:p-zero-boundary}
+\end{equation}
+
+\paragraph{A single selected head: $h=1$.}
+Let $U=\{u\}$.  Here $e_u=p=k-1$ and $\Psi=0$.  In the notation of Lemma~\ref{lem:one-head-cross}, $d(u)=k+1+a_u$ and $n_u\le1+a_u$.  The unrelaxed estimate \eqref{eq:local-convex} becomes
+\[
+(k-1)(Q-W_u)
+\le(k-1)\left(\left\lfloor\frac{n_u^2}{4}\right\rfloor-a_un_u\right).
+\]
+If $a_u=0$, then $n_u\le1$ and the expression in parentheses is zero.  If $a_u\ge1$, then $n_u\le a_u+1\le4a_u$, whence $\lfloor n_u^2/4\rfloor\le a_un_u$.  This includes the case $A_u=\varnothing$; no nonempty active-set assumption is used.  Thus
+\begin{equation}
+Q\le W_u\le\TV_k(H),
+\label{eq:h-one-payment}
+\end{equation}
+and Lemma~\ref{lem:reserve} gives $D_G(S)\ge0$.
+
+\paragraph{The case $k=1$.}
+Let $S=\{e\}$.  Every unselected edge has positive imbalance, so
+\[
+D_G(\{e\})=m-1-w(e).
+\]
+If $e=uv$ with $d(u)>d(v)$, then $w(e)=d(u)-d(v)\le d(u)-1\le m-1$.  Hence $D_G(\{e\})\ge0$.
+
+The profiles $h\ge2,p>0$, $p=0$, and $h=1$ exhaust $k\ge2$, and the last paragraph handles $k=1$.  This proves Theorem~\ref{thm:threshold}.
+
+\section{Deduction of the Imbalance Conjecture}\label{sec:deduction}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+If $E(G)=\varnothing$, the empty multiset is graphical.  Assume $m=\lvert E(G)\rvert\ge1$ and list the positive imbalances in nonincreasing order:
+\begin{equation}
+x_1\ge x_2\ge\cdots\ge x_m>0.
+\label{eq:sorted-x}
+\end{equation}
+Their sum is even.  Indeed, modulo two,
+\begin{align}
+\sum_{uv\in E(G)}\lvert d(u)-d(v)\rvert
+&\equiv\sum_{uv\in E(G)}(d(u)+d(v))\notag\\
+&=\sum_vd(v)^2
+\equiv\sum_vd(v)=2m\equiv0.
+\label{eq:parity}
+\end{align}
+Also $x_1\le m-1$: for an edge whose higher-degree endpoint is $u$, its imbalance is at most $d(u)-1\le m-1$.  Because all $x_i$ are positive, the first Erd\H{o}s--Gallai deficit is
+\[
+\Delta_1=(m-1)-x_1\ge0.
+\]
+
+For $1\le j\le m$, write
+\begin{equation}
+\Delta_j=j(j-1)+\sum_{i=j+1}^m\min\{j,x_i\}-\sum_{i=1}^jx_i.
+\label{eq:Delta}
+\end{equation}
+Suppose some Erd\H{o}s--Gallai inequality fails, and let $k\ge2$ be the first failed index.  Then
+\begin{equation}
+x_k\ge k.
+\label{eq:first-fail-threshold}
+\end{equation}
+For if $x_k\le k-1$, then sortedness gives $x_i\le k-1$ for all $i\ge k$, and direct subtraction, with both copies of $x_k$ retained, gives
+\begin{equation}
+\Delta_k-\Delta_{k-1}=2(k-1-x_k)\ge0.
+\label{eq:first-fail-subtraction}
+\end{equation}
+This contradicts $\Delta_{k-1}\ge0>\Delta_k$.
+
+Choose any set $S$ of $k$ edges carrying the $k$ largest imbalances, resolving a boundary tie arbitrarily.  By \eqref{eq:first-fail-threshold}, every edge of $S$ has imbalance at least $k$, and by definition
+\[
+D_G(S)=\Delta_k.
+\]
+Theorem~\ref{thm:threshold} gives $\Delta_k\ge0$, contradicting the choice of $k$.  Therefore all Erd\H{o}s--Gallai inequalities hold; together with \eqref{eq:parity}, the criterion proves that $\Ical(G)$ is graphical.
+\end{proof}
+
+\section{Quantitative slack and equality}\label{sec:equality}
+
+The preceding proof contains strict profile information.  Retain the notation $h=\lvert U\rvert$, $p=k-h$, and $e_u=s_u-1$ for a threshold set $S$ with $k\ge2$.
+
+\begin{theorem}[Profile-sensitive slack]\label{thm:profile-slack}
+For every threshold set $S$ as in Theorem~\ref{thm:threshold}:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If $h=k$, then
+\[
+D_G(S)\ge\binom{k}{2}.
+\]
+\item If $2\le h<k$, then
+\begin{equation}
+D_G(S)\ge L(h,p),
+\label{eq:D-L}
+\end{equation}
+where
+\begin{equation}
+L(h,p)=
+\begin{cases}
+\displaystyle
+\left\lceil\frac{3p^2+(2h-4)p+h(h-2)}{4}\right\rceil,
+&2h\ge3p,\\[10pt]
+\displaystyle
+\left\lceil(h-1)p+\frac{h(h-2)}{4}\right\rceil,
+&2h<3p.
+\end{cases}
+\label{eq:def-L}
+\end{equation}
+In particular, $D_G(S)\ge1$.
+\item If $h=1$, with unique head $u$, then the exact identity
+\begin{equation}
+D_G(S)=B+\TV_k(G-u)-Q
+\label{eq:h1-exact}
+\end{equation}
+holds, and $D_G(S)\ge B$.
+\end{enumerate}
+Moreover, among the profiles in \textup{(ii)}, $L(h,p)=1$ only for
+\begin{equation}
+(h,p,k)=(2,1,3),
+\label{eq:exceptional-profile}
+\end{equation}
+whose head multiplicities are $(2,1)$.
+\end{theorem}
+
+\begin{proof}
+Part~(i) is \eqref{eq:p-zero-boundary}.  For part~(ii), Lemma~\ref{lem:reserve} and Corollary~\ref{cor:global-cross} give
+\[
+D_G(S)\ge\Psi-\frac{C}{4p}.
+\]
+If $2h\ge3p$, equations \eqref{eq:gap-first-lower} and integrality of $D_G(S)$ yield the first line of \eqref{eq:def-L}; if $2h<3p$, equation \eqref{eq:gap-second-lower} yields the second.  Both bounds are positive.  More explicitly, the same estimates give
+\begin{equation}
+4p\Psi-C\ge4p.
+\label{eq:integral-gap}
+\end{equation}
+For $h\ge3$ this is immediate from the displayed lower bounds.  If $h=2$ and $2h\ge3p$, then $p=1$, so $(e_1,e_2)=(1,0)$ and direct substitution gives equality $4p\Psi-C=4$.  If $h=2$ and $2h<3p$, then $p\ge2$ and \eqref{eq:gap-second-lower} gives
+\[
+4p\Psi-C\ge4p^2\ge4p.
+\]
+For the uniqueness assertion, when $h=2$ in this second regime the second line of \eqref{eq:def-L} equals $p\ge2$, while for $h\ge3$ either line of \eqref{eq:def-L} is at least two.  Hence $L(h,p)=1$ occurs only for $(h,p,k)=(2,1,3)$.
+
+For part~(iii), all selected edges have high endpoint $u$, so their terms $k-c_e$ in \eqref{eq:exact-identity} vanish.  There are no edges with both endpoints in $U$.  Every unselected edge $uz$ contributes exactly $-q_{u,z}$ if $w(uz)<k$ and zero otherwise, while every edge of $G-u$ contributes its truncated imbalance.  This proves \eqref{eq:h1-exact}.  Inequality \eqref{eq:h-one-payment} gives $Q\le\TV_k(G-u)$, hence $D_G(S)\ge B$.
+\end{proof}
+
+The source-side equality statement below is proved directly.  The subsequent uniqueness of the two target realizations is an elementary unigraphic consequence, for which classical equality and unigraph theory provide background \cite{Tyshkevich2000,Barrus2013}.
+
+\begin{theorem}[Complete threshold equality classification]\label{thm:equality-classification}
+Let $G$ be finite, simple, and locally irregular, and let $S\subseteq E(G)$ satisfy $\lvert S\rvert=k\ge2$ and $w(e)\ge k$ for every $e\in S$.  Then $D_G(S)=0$ if and only if, after deleting isolated vertices, exactly one of the following holds:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $G\cong K_{1,t}$ for some $t\ge k+1$, and $S$ is any $k$-edge subset;
+\item $G$ is obtained from $K_{1,k+1}$ by subdividing exactly one edge once, and $S$ is the set of the $k$ unsubdivided leaf edges incident with the degree-$(k+1)$ center.
+\end{enumerate}
+For $k=1$, equality in Theorem~\ref{thm:threshold} holds if and only if deleting isolated vertices leaves a star.
+\end{theorem}
+
+\begin{proof}
+Assume first that $k\ge2$ and $D_G(S)=0$.  Theorem~\ref{thm:profile-slack}(i)--(ii) excludes every profile except $h=1$.  Let $u$ be the unique head.  By \eqref{eq:h1-exact} and $Q\le\TV_k(G-u)$,
+\begin{equation}
+B=0,
+\qquad
+\TV_k(G-u)=Q.
+\label{eq:equality-B-TV}
+\end{equation}
+The equality $B=0$ says that every selected low endpoint is a leaf.
+
+Write
+\begin{equation}
+d(u)=k+1+a,
+\qquad a\ge0,
+\label{eq:equality-a}
+\end{equation}
+and let
+\[
+A=\{z\in N_G(u):\lvert d(u)-d(z)\rvert<k\},
+\qquad n=\lvert A\rvert.
+\]
+These are precisely the active residual vertices, and $n\le a+1$.  Let $W$ be the truncated weight in $G-u$ incident with $A$.  The unrelaxed single-head estimate is
+\begin{equation}
+(k-1)(Q-W)
+\le(k-1)\left(\left\lfloor\frac{n^2}{4}\right\rfloor-an\right).
+\label{eq:equality-local}
+\end{equation}
+If $a\ge1$ and $n>0$, then $1\le n\le a+1<4a$, so $\lfloor n^2/4\rfloor<an$.  Equation \eqref{eq:equality-local} gives
+\[
+Q<W\le\TV_k(G-u),
+\]
+contradicting \eqref{eq:equality-B-TV}.  Hence $n=0$.  Then $Q=0$, and \eqref{eq:equality-B-TV} gives $\TV_k(G-u)=0$.  Every edge of $G-u$ would have positive imbalance, so $G-u$ is edgeless.  Deleting isolates leaves a star centered at $u$, with $d(u)=k+1+a\ge k+1$.
+
+It remains to consider $a=0$.  Then $d(u)=k+1$ and $n\le1$.  If $n=0$, the preceding argument gives $K_{1,k+1}$.  Suppose $A=\{z\}$.  From \eqref{eq:equality-B-TV}, \eqref{eq:dH-bound}, and the definition of $W$,
+\begin{equation}
+\TV_k(G-u)\ge W\ge d_{G-u}(z)\ge q_z=Q.
+\label{eq:equality-chain}
+\end{equation}
+All inequalities in \eqref{eq:equality-chain} are equalities.  If $d(z)>d(u)$, the degree estimate \eqref{eq:dH-bound} is larger than $q_z$ by $2\lvert d(z)-d(u)\rvert$, impossible; hence $d(z)<d(u)$.  Equality $\TV_k(G-u)=W$ implies that every edge of $G-u$ is incident with $z$, and equality $W=d_{G-u}(z)$ implies that every such edge has imbalance one.  The $k$ selected neighbors of $u$ are leaves, and $u$ has only one further neighbor, namely $z$.  Every neighbor of $z$ in $G-u$ has no other incident edge and therefore has degree one in $G$.  An imbalance-one edge from $z$ to such a vertex forces $d(z)=2$, so there is exactly one such neighbor.  This is the once-subdivided star in (b).
+
+Conversely, in $K_{1,t}$ every edge has imbalance $t-1$, and for $k\le t-1$ direct substitution into \eqref{eq:def-D} gives $D_G(S)=0$ for every $k$-edge set $S$.  In the once-subdivided $K_{1,k+1}$, the imbalance multiset is
+\begin{equation}
+\underbrace{k,\ldots,k}_{k\text{ times}},\quad k-1,\quad1.
+\label{eq:subdivided-sequence}
+\end{equation}
+The only $k$ edges meeting the threshold are the direct leaf edges, and substitution again gives deficit zero.
+
+Finally let $k=1$ and suppose $D_G(\{e\})=0$.  Then $w(e)=m-1$.  If $e=uv$ with $d(u)>d(v)$, then
+\[
+m-1=d(u)-d(v)\le d(u)-1\le m-1.
+\]
+Equality throughout forces $d(u)=m$ and $d(v)=1$.  Every edge is incident with $u$, so deleting isolates leaves a star.  Every star gives equality, completing the proof.
+\end{proof}
+
+\begin{corollary}[Uniqueness of the critical target realization]\label{cor:target-unique}
+The graphical sequences arising in the two $k\ge2$ equality families have unique simple realizations up to isomorphism:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $(t-1)^t$ is realized only by $K_t$;
+\item $k^k,k-1,1$ is realized only by a graph consisting of a $K_k$ and two independent vertices whose neighborhoods partition the clique into sets of sizes $k-1$ and $1$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+A graph on $t$ vertices in which every vertex has degree $t-1$ is $K_t$.  For the second sequence, equality in its $k$th Erd\H{o}s--Gallai inequality forces the $k$ degree-$k$ vertices to induce a clique, the two remaining vertices to be nonadjacent, and every edge incident with either remaining vertex to enter the clique.  Each clique vertex already has $k-1$ clique neighbors and therefore has exactly one neighbor among the two remaining vertices.  Their degrees $k-1$ and $1$ consequently partition the clique, determining the graph up to isomorphism.
+\end{proof}
+
+\section{One equal-degree edge}\label{sec:one-zero}
+
+We now allow zero imbalances and prove a separate extension.  The argument requires explicit correction terms; it is not a formal consequence of Theorem~\ref{thm:main}.
+
+Let $G$ be an arbitrary finite simple graph, and let $S\subseteq E(G)$ satisfy $\lvert S\rvert=k\ge2$ and $w(e)\ge k$ for every $e\in S$.  Selected edges still have unique higher- and lower-degree endpoints, so define $s_v,\ell_v,U,H,h,p,e_u,B,Q,\TV_k(H),\Psi$, and
+\[
+C=\sum_{u\in U}e_u(k-e_u)^2
+\]
+as before.  Partition the zero-imbalance edges according to their position relative to $U$:
+\begin{align}
+Z_{UU}&=\bigl\lvert\{xy\in E(G[U]):d(x)=d(y)\}\bigr\rvert,\notag\\
+Z_{UH}&=\bigl\lvert\{xy\in E_G(U,H):d(x)=d(y)\}\bigr\rvert,\notag\\
+Z_H&=\bigl\lvert\{xy\in E(H):d(x)=d(y)\}\bigr\rvert.
+\label{eq:zero-counts}
+\end{align}
+
+\begin{lemma}[Zero-edge correction]\label{lem:zero-correction}
+With $L(h,p)$ as in \eqref{eq:def-L}, the subset deficit satisfies:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item if $h=k$, then
+\begin{equation}
+D_G(S)\ge\binom{k}{2}-Z_{UU}-Z_{UH};
+\label{eq:Z1}
+\end{equation}
+\item if $2\le h<k$, then
+\begin{equation}
+D_G(S)\ge L(h,p)-Z_{UU}-Z_{UH}-2Z_H;
+\label{eq:Z2}
+\end{equation}
+\item if $h=1$, then
+\begin{equation}
+D_G(S)\ge B-2Z_H.
+\label{eq:Z3}
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The exact identity \eqref{eq:exact-identity} uses only the selected edges and remains valid.  A positive unselected edge between two heads costs at most $s_u+s_v-1$, as before, whereas a zero edge costs $s_u+s_v$.  Each zero edge internal to $U$ therefore removes at most one additional unit of reserve.  The cross-edge demands in \eqref{eq:q-Q} already include zero $U$--$H$ edges.  Consequently,
+\begin{equation}
+D_G(S)\ge\TV_k(H)-Q+\Psi-Z_{UU}.
+\label{eq:Z4}
+\end{equation}
+
+For every $u\in U$, define $A_u,Q_u,W_u$ by
+\eqref{eq:A-Qu}--\eqref{eq:Wu}, without restricting to repeated heads, and set
+\begin{equation}
+t_u=\bigl\lvert\{z\in A_u:w(uz)=0\}\bigr\rvert,
+\qquad
+\zeta_u=\sum_{\substack{xy\in E(H)\\w(xy)=0}}
+                 \bigl\lvert\{x,y\}\cap A_u\bigr\rvert.
+\label{eq:t-zeta}
+\end{equation}
+When $e_u=0$, no positive edge can be active, but a zero $U$--$H$ edge may lie in $A_u$ and must be retained.
+The degree estimate \eqref{eq:dH-bound} remains valid for a zero active edge: then $d(z)=d(u)$ and $q_{u,z}=e_u+1$.  A zero edge of $H$ contributes zero to $W_u$ but one residual-degree incidence for each active endpoint.  Thus \eqref{eq:W-incidence} becomes
+\begin{equation}
+W_u\ge\sum_{z\in A_u}d_H(z)-E_1(A_u)-\zeta_u.
+\label{eq:Z5}
+\end{equation}
+For a positive active edge, $q_{u,z}\le e_u$; for a zero active edge, $q_{u,z}=e_u+1$.  Hence
+\begin{equation}
+Q_u-e_un_u\le t_u.
+\label{eq:Z6}
+\end{equation}
+Repeating the algebra leading to \eqref{eq:pre-relax}, now using \eqref{eq:Z5}--\eqref{eq:Z6}, gives
+\begin{equation}
+pQ_u-e_uW_u
+\le\frac{e_u}{4}(k-e_u)^2+e_u\zeta_u+(p-e_u)t_u.
+\label{eq:Z7}
+\end{equation}
+This also holds when $e_u=0$: then the active edges are precisely zero edges and both sides reduce to the last term.
+
+Upon summation, a zero edge of $H$ contributes at most $2p$ to $\sum_ue_u\zeta_u$, because each of its two endpoints contributes coefficient at most $\sum_ue_u=p$.  A zero $U$--$H$ edge contributes at most $p$ to $\sum_u(p-e_u)t_u$.  As before, $\sum_ue_uW_u\le p\TV_k(H)$.  Therefore, for $p>0$,
+\begin{equation}
+p\bigl(Q-\TV_k(H)\bigr)
+\le\frac C4+2pZ_H+pZ_{UH}.
+\label{eq:Z8}
+\end{equation}
+Combining \eqref{eq:Z4} and \eqref{eq:Z8} with the purely algebraic profile estimates \eqref{eq:gap-first-lower}--\eqref{eq:gap-second-lower}, which depend only on $(e_u)_{u\in U}$, $h$, and $p$, and then using integrality after subtracting the integer correction, proves \eqref{eq:Z2}.
+
+If $p=0$, every $s_u=1$.  Positive $U$--$H$ edges create no demand, while every zero $U$--$H$ edge contributes exactly one; hence $Q=Z_{UH}$.  Equation \eqref{eq:Z4} gives \eqref{eq:Z1}.
+
+Finally suppose $h=1$, with $U=\{u\}$, $e_u=p=k-1$, and $d(u)=k+1+a_u$.  In this case \eqref{eq:Z7} has the sharper unrelaxed form
+\begin{equation}
+Q-W_u\le E_1(A_u)+\zeta_u-a_un_u.
+\label{eq:h1-zero-local}
+\end{equation}
+The parity bound and $n_u\le a_u+1$ imply $E_1(A_u)\le a_un_u$: this is immediate for $a_u=0$, and for $a_u\ge1$ follows from $n_u\le a_u+1\le4a_u$.  Thus
+\[
+Q-\TV_k(H)\le Q-W_u\le\zeta_u\le2Z_H.
+\]
+The exact single-head identity \eqref{eq:h1-exact}, which remains valid with zero edges, proves \eqref{eq:Z3}.
+\end{proof}
+
+\begin{theorem}[One-equal-edge extension]\label{thm:one-zero}
+If a finite simple graph has at most one edge whose endpoints have equal degrees, then its full edge-imbalance multiset is graphical.
+\end{theorem}
+
+\begin{proof}
+If no edge has equal-degree endpoints, this is Theorem~\ref{thm:main}.  Suppose exactly one edge has imbalance zero, and let $r$ be the number of positive imbalances.  Then $r=\lvert E(G)\rvert-1$.
+
+First consider the omitted boundary $r=0$.  The graph has exactly one edge, and its endpoints both have degree one.  Thus its only non-isolated component is $K_2$, its edge-imbalance multiset is $\{0\}$, whose nonincreasing ordering is the graphical degree sequence $(0)$, realized by one isolated target vertex.
+
+Assume henceforth that $r\ge1$, and write the positive subsequence as
+\begin{equation}
+y_1\ge y_2\ge\cdots\ge y_r>0.
+\label{eq:positive-y}
+\end{equation}
+The full edge-imbalance multiset is graphical if and only if the positive ordered sequence \eqref{eq:positive-y} is graphical: the zero term corresponds exactly to an isolated vertex in a realizing graph.  Its sum is even by the parity computation \eqref{eq:parity}, which did not use local irregularity.
+
+The first Erd\H{o}s--Gallai inequality for \eqref{eq:positive-y} holds.  The elementary bound $w(e)\le\lvert E(G)\rvert-1=r$ gives $y_1\le r$.  If $y_1=r$ and the corresponding edge has higher endpoint $u$ and lower endpoint $v$, then
+\[
+r=d(u)-d(v)\le d(u)-1\le\lvert E(G)\rvert-1=r.
+\]
+Equality throughout forces $d(u)=\lvert E(G)\rvert$ and $d(v)=1$.  Every edge is then incident with the higher endpoint, so the non-isolated part of $G$ is a star.  Since $r\ge1$, that star has at least two edges and no zero-imbalance edge, a contradiction.  Hence
+\begin{equation}
+y_1\le r-1.
+\label{eq:y1-bound}
+\end{equation}
+
+Suppose there is a first failed Erd\H{o}s--Gallai index $k\ge2$.  The subtraction \eqref{eq:first-fail-subtraction} applies verbatim and gives $y_k\ge k$.  Choose a top-$k$ set $S$ among the positive-imbalance edges.  The zero edge contributes nothing to the subset deficit, so $D_G(S)$ is exactly the $k$th deficit of \eqref{eq:positive-y}.
+
+If $h=k$, Lemma~\ref{lem:zero-correction}(i) and the fact that there is only one zero edge give
+\begin{equation}
+D_G(S)\ge\binom{k}{2}-1\ge0.
+\label{eq:onezero-hk}
+\end{equation}
+
+Suppose $2\le h<k$.  If the zero edge is not contained in $H$, then \eqref{eq:Z2} and $L(h,p)\ge1$ give $D_G(S)\ge0$.  If it lies in $H$, the same follows whenever $L(h,p)\ge2$.  By Theorem~\ref{thm:profile-slack}, the only remaining profile is
+\begin{equation}
+(h,p,k)=(2,1,3),
+\qquad(s_u,s_v)=(2,1).
+\label{eq:onezero-exception}
+\end{equation}
+Let $u$ be the repeated head.  The head $v$ with $s_v=1$ has no active positive edge, and the unique zero edge lies in $H$, so all residual demand comes from $u$.  Write $d(u)=4+a$ and $n=\lvert A_u\rvert\le a+2$.  Here $\Psi=2$, and the exact residual estimate is
+\begin{equation}
+Q-\TV_3(H)\le E_1(A_u)+\zeta_u-an.
+\label{eq:exception-residual}
+\end{equation}
+If $a\ge1$, then $n\le a+2\le4a$, so $E_1(A_u)\le\lfloor n^2/4\rfloor\le an$ and the right-hand side is at most $\zeta_u\le2$.  If $a=0$, then $n\le2$.  For $n\le1$ the same conclusion is immediate.  For $n=2$, either the two active vertices are the endpoints of the unique zero edge, in which case $\zeta_u=2$ and $E_1(A_u)=0$ by simplicity, or $\zeta_u\le1$ and $E_1(A_u)\le1$.  Thus in all cases
+\[
+Q-\TV_3(H)\le2=\Psi,
+\]
+and \eqref{eq:Z4} gives $D_G(S)\ge0$.
+
+It remains to treat $h=1$.  Let $u$ be the unique head, write
+\begin{equation}
+d(u)=k+1+a,
+\qquad
+A=A_u,
+\qquad
+n=\lvert A\rvert\le a+1.
+\label{eq:onezero-h1-data}
+\end{equation}
+If the zero edge is not in $H$, Lemma~\ref{lem:zero-correction}(iii) gives $D_G(S)\ge B\ge0$.  Suppose it is in $H$.  From \eqref{eq:h1-exact} and \eqref{eq:h1-zero-local},
+\begin{equation}
+D_G(S)\ge B+an-E_1(A)-\zeta_u.
+\label{eq:Z9}
+\end{equation}
+If $a=1$, then $n\le2$.  For $n=0$ the claim is trivial; for $n=1$, $E_1(A)=0$ and $\zeta_u\le1=an$; for $n=2$, if the unique zero edge joins the two active vertices then $\zeta_u=2$ and $E_1(A)=0$, while otherwise $\zeta_u\le1$ and $E_1(A)\le1$.  Hence $E_1(A)+\zeta_u\le an$.  If $a\ge2$, then
+\begin{equation}
+E_1(A)+\zeta_u
+\le\left\lfloor\frac{n^2}{4}\right\rfloor+\min\{2,n\}
+\le an
+\qquad(n\le a+1),
+\label{eq:a-ge-two}
+\end{equation}
+where the final inequality is immediate for $n=0,1,2$ using $a\ge2$, while for $n\ge3$ the bound $n\le a+1$ gives $a\ge n-1$ and
+\[
+\left\lfloor\frac{n^2}{4}\right\rfloor+2\le n(n-1)\le an.
+\]
+Thus \eqref{eq:Z9} is nonnegative whenever $a\ge1$.
+
+Finally let $a=0$, so $n\le1$.  The cases $n=0$, $B\ge1$, or $\zeta_u=0$ follow directly from \eqref{eq:Z9}.  In the only remaining case, $n=1$, $B=0$, and the active vertex $z$ is incident with the unique zero edge $zx$.  The $k$ selected low endpoints are leaves, $u$ has exactly one further neighbor $z$, and
+\begin{equation}
+d(z)=d(x)=r_0\ge2.
+\label{eq:r0}
+\end{equation}
+In $H=G-u$, the vertex $z$ has $r_0-2$ positive incident edges other than $zx$, and $x$ has $r_0-1$ positive incident edges other than $xz$.  These are distinct edges, and every one contributes at least one to $\TV_k(H)$.  Hence
+\begin{equation}
+\TV_k(H)\ge2r_0-3.
+\label{eq:TV-r0}
+\end{equation}
+The sole demand is
+\begin{equation}
+q_z=\bigl(k-\lvert k+1-r_0\rvert\bigr)_+.
+\label{eq:q-r0}
+\end{equation}
+If $r_0\le k+1$, then $q_z=r_0-1\le2r_0-3$; if $r_0\ge k+1$, then $q_z\le k\le2r_0-3$.  Thus $\TV_k(H)\ge Q$, and \eqref{eq:h1-exact} gives $D_G(S)\ge0$.
+
+Every possible first failed index has been excluded.  Therefore the positive ordered sequence \eqref{eq:positive-y}, and hence the full edge-imbalance multiset obtained by adjoining one zero, is graphical.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:one-zero} does not assert graphicality when two or more zero-imbalance edges occur.  Lemma~\ref{lem:zero-correction} shows exactly where such edges enter the present proof: a zero edge inside $U$ costs one unit of head reserve, a zero edge between $U$ and $H$ costs at most one unit in the weighted cross-payment, and a zero edge inside $H$ costs at most two units.
+\end{remark}
+
+\section{Corollaries and reformulations}\label{sec:corollaries}
+
+The statements in this section are standard reformulations or immediate consequences of the proved theorems; no separate novelty claim is made for them.
+
+\begin{corollary}[Labeled edge-to-vertex realization]\label{cor:labeled}
+For every finite simple locally irregular graph $G$, there is a finite simple graph $F$ with vertex set literally equal to $E(G)$ such that
+\begin{equation}
+d_F(e)=w_G(e)\qquad(e\in E(G)).
+\label{eq:labeled-realization}
+\end{equation}
+Consequently, for every $A\subseteq E(G)$ with $\lvert A\rvert=r$,
+\begin{equation}
+\sum_{e\in A}w_G(e)
+\le r(r-1)+\sum_{f\in E(G)\setminus A}\min\{r,w_G(f)\}.
+\label{eq:all-subsets}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:main} supplies a simple realization of the imbalance multiset.  Relabel its vertices bijectively by the source edges carrying the corresponding degrees; this gives \eqref{eq:labeled-realization}.  In any simple graph, the degree sum on a vertex set $A$ is at most twice the number of internal edges plus the number of possible incidences from each outside vertex, which gives \eqref{eq:all-subsets}.
+\end{proof}
+
+Equivalently, the imbalance vector is a feasible integral $b$-factor demand on the complete graph with vertex set $E(G)$, a standard specialization of factor theory \cite{Tutte1952}.  In incidence-matrix language, orient each source edge and let $D$ be the signed oriented incidence matrix (the signed vertex-edge incidence matrix for this orientation).  If $d$ is the degree vector of $G$, then the edge-indexed vector of imbalances is $\lvert D^{\mathsf T}d\rvert$.  Corollary~\ref{cor:labeled} is equivalent to the existence of a symmetric zero-one matrix $A$ with zero diagonal such that
+\begin{equation}
+A\one=\lvert D^{\mathsf T}d\rvert.
+\label{eq:incidence-form}
+\end{equation}
+Thus the absolute discrete gradient of the degree signal on a locally irregular graph is itself a simple-graph degree vector on the edge set.
+
+The result is algorithmically constructive.  After computing the imbalances, one may apply the Havel--Hakimi algorithm \cite{Havel1955,Hakimi1962}, or an equivalent simple-graph $b$-matching algorithm, to vertices labeled by $E(G)$.  The theorem guarantees success, and the returned graph is certified by direct degree checking.
+
+Universal inequalities for simple-graph degree sequences transfer immediately to the imbalance vector.  For example, put
+\begin{equation}
+I(G)=\sum_{e\in E(G)}w_G(e),
+\qquad
+\Sigma(G)=\sum_{e\in E(G)}w_G(e)^2,
+\qquad
+m=\lvert E(G)\rvert.
+\end{equation}
+The realizing graph $F$ has $m$ vertices and $I(G)/2$ edges.  Applying de Caen's degree-square bound \cite{deCaen1998} gives, for $m\ge2$,
+\begin{equation}
+\Sigma(G)
+\le\frac{I(G)}2\left(\frac{I(G)}{m-1}+m-2\right).
+\label{eq:de-caen-transfer}
+\end{equation}
+No separate novelty claim is made for this immediate transferred inequality.
+
+Finally, if an arbitrary graph is edge-decomposed into locally irregular subgraphs $G_1,\ldots,G_t$, with degrees and imbalances computed inside each class, then the multiset union of the classwise imbalance multisets is graphical: realize each class separately and take the disjoint union of the target graphs.  This is an immediate componentwise observation in the setting of locally irregular decompositions \cite{BensmailStevens2016}; it neither constructs such a decomposition nor bounds a locally irregular chromatic index.
+
+The realizing graph $F$ need not be connected, bipartite, locally irregular, unique, or related by containment to the line graph of $G$.  Apart from Theorem~\ref{thm:one-zero}, the results here do not settle domains in which several equal-degree edges are permitted.
+
+\section*{Verification and provenance}
+
+DannyExperiments initiated and directed the investigation, selected the validation requirements, curated and validated the artifacts, and is the human curator and conventional manuscript author of the project.  OpenAI GPT-5.6 Pro generated the ordinary-language proof, strengthened results, and manuscript drafting.  OpenAI Codex coordinated the audit and provenance workflow and prepared the repository and reproducibility infrastructure.  No AI system is listed as an author.  The preserved mathematical and literature reports are AI-generated audits, not human peer review.  Human specialist review and proof-assistant verification have not been obtained.  The documented literature search supports only the qualified classification ``apparently new, moderate confidence.''
+
+\appendix
+
+\section{A residual counterpacket outside first-failure scope}\label{app:counterpacket}
+
+The unconditional inequality $\TV_k(H)\ge Q$ is false, even for a locally irregular graph and a top threshold set.  This does not contradict the proof, which retains the head reserve.
+
+Let
+\[
+V(G)=\{u,v,w,z,x,y,a_1,a_2,a_3,b,c,p,q\}
+\]
+and
+\begin{align*}
+E(G)=\{&uz,ux,uy,ua_1,ua_2,ua_3,\\
+       &vz,vx,vy,vb,vp,vq,\\
+       &wz,wx,wy,wc,wp,wq,zx,zy\}.
+\end{align*}
+The degrees are
+\begin{align*}
+d(u)=d(v)=d(w)&=6,&d(z)&=5,&d(x)=d(y)&=4,\\
+d(p)=d(q)&=2,&d(a_1)=d(a_2)=d(a_3)=d(b)=d(c)&=1.
+\end{align*}
+Every edge has positive imbalance, and the imbalance multiset is
+\[
+\{5^{[5]},4^{[4]},2^{[6]},1^{[5]}\},
+\]
+where the bracketed exponent records multiplicity.  At $k=5$, take
+\[
+S=\{ua_1,ua_2,ua_3,vb,wc\}.
+\]
+Then $U=\{u,v,w\}$ and $(s_u,s_v,s_w)=(3,1,1)$.  Deleting $U$ leaves only $zx$ and $zy$, both of imbalance one, so
+\[
+\TV_5(H)=2.
+\]
+The nonzero demands are
+\[
+q_z=3-\lvert6-5\rvert=2,
+\qquad
+q_x=q_y=3-\lvert6-4\rvert=1,
+\]
+and therefore
+\begin{equation}
+\TV_5(H)=2<4=Q.
+\label{eq:counter-residual}
+\end{equation}
+However, the nonincreasing ordering of the edge-imbalance multiset has Erd\H{o}s--Gallai deficits
+\[
+\begin{gathered}
+14,23,26,29,28,30,34,40,48,62,78,96,116,138,\\
+162,190,220,252,286,322.
+\end{gathered}
+\]
+In particular, $k=5$ is not a failed index: $\Delta_5=28$.  The reserve is $\Psi=7$, and \eqref{eq:reserve-inequality} remains valid.  Thus \eqref{eq:counter-residual} refutes only the unconditional residual strengthening, not the Imbalance Conjecture.
+
+\section{Non-load-bearing exact computation}\label{app:computation}
+
+No finite computation is used in any proof above.  Four exact programs and captured outputs are included under \texttt{auxiliary/}; all are explicitly non-load-bearing.
+
+Two NetworkX programs provide regression tests for the displayed identities, bounds, boundary profiles, equality cases, and zero-edge corrections.  The first verifies the counterpacket above, every locally irregular graph in the NetworkX graph atlas through seven vertices with every top-set boundary-tie choice, every locally irregular nonisomorphic tree through sixteen vertices, and every integer head-multiplicity profile through $k=50$.  Its completed checks comprise 114 atlas graphs, 754 top-threshold cases, 10,258 tie choices, 4,709 locally irregular trees, 246,708 tree top-threshold cases, 953,294 tree tie choices, and 1,295,871 multiplicity profiles; the minimum value of $4p\Psi-C$ is $4$.  The second verifies all 2,785 qualifying threshold subsets in those 114 atlas graphs, including 1,709 non-top subsets and 204 equality cases, as well as 12,409 zero-correction subsets and every relevant one-zero atlas instance.
+
+An independently written dependency-free Python checker examines all labeled graphs through five vertices, complete bipartite universes on fixed sides $2+6$ and $3+4$, 58,367 locally irregular threshold sets, 75,895 zero-correction threshold sets, all displayed intermediate inequalities, target rigidity through six vertices, and all profiles through $k=50$.  A separate C++20 program exhausts all $2^{21}=2,097,152$ labeled graphs on seven vertices, including 3,162,929 qualifying threshold subsets and 595,008 graphs with at most one zero edge.  No check failed.  These finite searches corroborate but do not replace the symbolic proofs.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,116 @@
+{
+  "all_required_pass": true,
+  "corollary": {
+    "baseline_count": 3,
+    "baseline_hashes": [
+      "ec9e6374065906962423ef343fba19ea0646ce5cd252e956f3fd867bf8387a29",
+      "856254a5bd911dcdf3cc3509026b4f44ef0d210af7096ac9798baba1d367ec05",
+      "895ed30ea8fcdb1bf023db40ff5e6f27a86029cfc0d62b4f473f7d88a611804d"
+    ],
+    "exact_match": true,
+    "expected_count": 3,
+    "new_count": 3,
+    "new_hashes": [
+      "ec9e6374065906962423ef343fba19ea0646ce5cd252e956f3fd867bf8387a29",
+      "856254a5bd911dcdf3cc3509026b4f44ef0d210af7096ac9798baba1d367ec05",
+      "895ed30ea8fcdb1bf023db40ff5e6f27a86029cfc0d62b4f473f7d88a611804d"
+    ]
+  },
+  "format": {
+    "abstract_five_sentence_layout": true,
+    "abstract_nonempty_lines": 5,
+    "author_command_count": 0,
+    "documentclass_exact": true,
+    "geometry_exact": true,
+    "title_exact": true
+  },
+  "labeled_displays": {
+    "all_exact": true,
+    "baseline_count": 79,
+    "expected_count": 79,
+    "label_sets_equal": true,
+    "mismatches": [],
+    "new_count": 79
+  },
+  "labels": {
+    "baseline_count": 100,
+    "baseline_unique": 100,
+    "expected_unique": 100,
+    "new_count": 100,
+    "new_unique": 100,
+    "ordered_exact": true
+  },
+  "lemma": {
+    "baseline_count": 4,
+    "baseline_hashes": [
+      "dddc5332b7b667a20d01b85537e925e290c59ad5a6b0e181492cd61977aa3f23",
+      "d81a8392e17645cd99eb330189512c0d984f8f83607ca357480cbc7098f813ee",
+      "62a94a8bdf733fc6c8b0dae11c0ee404f5d4caf3c387c9952c7291f35d03b789",
+      "1a837356513850875e64326fd5f6989da98d5caccb20456f239ec0329cce3bc8"
+    ],
+    "exact_match": true,
+    "expected_count": 4,
+    "new_count": 4,
+    "new_hashes": [
+      "dddc5332b7b667a20d01b85537e925e290c59ad5a6b0e181492cd61977aa3f23",
+      "d81a8392e17645cd99eb330189512c0d984f8f83607ca357480cbc7098f813ee",
+      "62a94a8bdf733fc6c8b0dae11c0ee404f5d4caf3c387c9952c7291f35d03b789",
+      "1a837356513850875e64326fd5f6989da98d5caccb20456f239ec0329cce3bc8"
+    ]
+  },
+  "proofs": {
+    "baseline_environments": 11,
+    "baseline_paragraphs": 38,
+    "environment_hashes_baseline": [
+      "308f9f813191b9b004683ae5f2ada56b623aaa8b384761fd9552123f5e1f7ebb",
+      "bcfd049ce076eb5b6441837af77bf9039f4ac6e64c5558d4c8be89559b68674f",
+      "e84f17ecb9e34ee24937d7aa065aee5a3f7f8c76d0a89665fe2ed26f86144760",
+      "d19aa620dde93aa813f4d47f907e1800c35241be12ac273c73f16c2cfb1d812f",
+      "c76f9d1170e11f6452f877f2ff5af019b0435231f4e30d7acd733030887d1c36",
+      "fa908e89b2d1fbb46fda9c2d78b0d242ac0f3ea0c23dad29723a78b5fe5d41df",
+      "f7fe02b3c6bc047f255eb431cff11cd0f5f40acbe932c4745ec319570b4c6a7f",
+      "b96bca5534c81b067bbba79dc8bb6485be9e7b341db763139a0a932d754ccf35",
+      "e06a08c16205bfed80e096c9c88fa392b908f31b4034901be0338ad905521917",
+      "ae4f4ae23c15174b13dc8fcf6591a20df1ee46ee411251d3971c91efc7ef98af",
+      "8647f8a9ce427dc02793ed4e87fa22d807d00ca821070a17da75c460002a1702"
+    ],
+    "environment_hashes_new": [
+      "308f9f813191b9b004683ae5f2ada56b623aaa8b384761fd9552123f5e1f7ebb",
+      "bcfd049ce076eb5b6441837af77bf9039f4ac6e64c5558d4c8be89559b68674f",
+      "e84f17ecb9e34ee24937d7aa065aee5a3f7f8c76d0a89665fe2ed26f86144760",
+      "d19aa620dde93aa813f4d47f907e1800c35241be12ac273c73f16c2cfb1d812f",
+      "c76f9d1170e11f6452f877f2ff5af019b0435231f4e30d7acd733030887d1c36",
+      "fa908e89b2d1fbb46fda9c2d78b0d242ac0f3ea0c23dad29723a78b5fe5d41df",
+      "f7fe02b3c6bc047f255eb431cff11cd0f5f40acbe932c4745ec319570b4c6a7f",
+      "b96bca5534c81b067bbba79dc8bb6485be9e7b341db763139a0a932d754ccf35",
+      "e06a08c16205bfed80e096c9c88fa392b908f31b4034901be0338ad905521917",
+      "ae4f4ae23c15174b13dc8fcf6591a20df1ee46ee411251d3971c91efc7ef98af",
+      "8647f8a9ce427dc02793ed4e87fa22d807d00ca821070a17da75c460002a1702"
+    ],
+    "environments_exact": true,
+    "new_environments": 11,
+    "new_paragraphs": 38,
+    "paragraphs_exact": true
+  },
+  "source_normalized_to_baseline": true,
+  "theorem": {
+    "baseline_count": 5,
+    "baseline_hashes": [
+      "6f194cd847d843f42d26ebf99702fff2b554f74a0751f35b42e191b90a957dec",
+      "d6ef5115d82ecef4cbc4764e80e4ac294a2740acd99027b7cae131e6dc0bb9f2",
+      "bdc42546b1bc34e7332624cda6370a8e9519c510c4951e50aa702197f9979a86",
+      "59b16e0407c496a06d10fb3ec7f2cada6c8e8317f98e42a83e34c77d52e6be70",
+      "09f60acaa004c08c7d589ef4901ebff6e8a9aff23bc75ee80af76362250c25ae"
+    ],
+    "exact_match": true,
+    "expected_count": 5,
+    "new_count": 5,
+    "new_hashes": [
+      "6f194cd847d843f42d26ebf99702fff2b554f74a0751f35b42e191b90a957dec",
+      "d6ef5115d82ecef4cbc4764e80e4ac294a2740acd99027b7cae131e6dc0bb9f2",
+      "bdc42546b1bc34e7332624cda6370a8e9519c510c4951e50aa702197f9979a86",
+      "59b16e0407c496a06d10fb3ec7f2cada6c8e8317f98e42a83e34c77d52e6be70",
+      "09f60acaa004c08c7d589ef4901ebff6e8a9aff23bc75ee80af76362250c25ae"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+name: Verify public evidence
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Verify repository and replay independent checkers
+        run: REQUIRE_RELEASE_PAPER=1 bash scripts/verify.sh
