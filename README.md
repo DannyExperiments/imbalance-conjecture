@@ -11,9 +11,17 @@
 [Release notes](release/RELEASE_NOTES_v1.0.0.md) ·
 [Reproduce](REPRODUCIBILITY.md)
 
-This repository gives a complete proof of the Imbalance Conjecture, together
+This repository gives an independent proof of the Imbalance Conjecture, together
 with a stronger threshold-set theorem, an equality classification, and a
 one-equal-edge extension.
+
+> **Priority correction (2 August 2026).** After this repository was released,
+> we located A. A. Raoui, [“The Imbalance Conjecture”](https://doi.org/10.5281/zenodo.20589431),
+> deposited on 8 June 2026. That preprint states and proves the same headline
+> finite-simple locally-irregular theorem. The headline result here is therefore
+> an independent proof, not a first solution. The arbitrary threshold-set theorem,
+> equality classification, and one-equal-edge extension are undergoing a separate
+> priority comparison. The earlier literature audit is superseded on this point.
 
 ## The problem
 
@@ -62,13 +70,13 @@ The labeled realization, complete-graph b-factor formulation, signed-incidence e
 | Ordinary proof | Complete |
 | Independent adversarial mathematical audit | Pass; high confidence |
 | Independent finite corroboration | Pass; non-load-bearing |
-| Literature and current-open-status audit | Complete through August 1, 2026 |
-| Novelty | Apparently new; moderate confidence |
+| Literature and current-open-status audit | Superseded: an earlier June 2026 proof was subsequently located |
+| Priority | Headline theorem previously proved by Raoui; stronger extensions under re-audit |
 | Human specialist review | Not obtained; not claimed |
 | Lean/Aristotle | No completed certificate; Stage 1 prompt prepared |
 | Canonical post-literature manuscript | Version 2.1 installed; final manuscript audit passed |
 
-The documented literature search found no retrievable earlier complete finite-simple-graph solution. It did identify narrow residual source gaps, so this repository does not claim absolute historical priority or a certified first proof.
+The original literature search missed Raoui's June 2026 preprint. The repository therefore makes no priority claim for the headline theorem. A source-level comparison of the stronger threshold-set, equality, and one-equal-edge results is in progress.
 
 The problem was identified for investigation through
 [UnsolvedMath v1.2.0](https://huggingface.co/datasets/ulamai/UnsolvedMath),
