@@ -10,6 +10,8 @@
   equality classification, and the one-equal-edge extension.
 - Marked `v1.0.0` as a superseded historical snapshot.
 - Replaced the failed literature conclusion with a dated correction record.
+- Rebuilt and visually inspected the 15-page priority-corrected PDF; froze its
+  exact GitHub Actions provenance, SHA-256, build log, and final audit.
 
 ## Historical v1.0.0 release - 2026-08-02
 

@@ -41,7 +41,7 @@
 - [x] Human specialist review was not obtained.
 - [x] Raoui's earlier proof and Schreib's formalization are cited prominently.
 - [x] Absolute historical priority is not claimed.
-- [ ] Priority-corrected manuscript rebuilt and visually inspected.
+- [x] Priority-corrected manuscript rebuilt and visually inspected.
 - [ ] `v1.1.0` immutable release published and `v1.0.0` marked superseded.
 - [ ] DOI deposited only for the corrected `v1.1.0` paper.
 - [x] No proof-assistant verification of this repository's alternative proof

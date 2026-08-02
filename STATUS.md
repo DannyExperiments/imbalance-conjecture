@@ -15,7 +15,7 @@ INDEPENDENT_PROOF_AI_AUDIT_PASS_PRIOR_PROOF_IDENTIFIED_PRIORITY_CORRECTED_V1_1_C
 | Computation | `PASS_NON_LOAD_BEARING` | Independent Python and exhaustive C++ checks pass; they do not prove the universal theorem. |
 | Priority correction | `COMPLETE_2026_08_02` | Raoui's June 8 proof and Schreib's July 25 Lean formalization are now cited and compared. |
 | Additional-result novelty | `FOCUSED_REVIEW_REQUIRED` | Slack, equality, and one-equal-edge results were absent from the two exact prior records, but broader novelty is not certified. |
-| Manuscript | `V1_1_PRIORITY_CORRECTED_CANDIDATE` | The title, abstract, literature discussion, citations, formalization status, and priority language are being corrected before DOI deposit. |
+| Manuscript | `V1_1_PRIORITY_CORRECTED_AUDIT_PASS` | The title, abstract, literature discussion, citations, formalization status, and priority language are corrected; the rebuilt 15-page PDF passed final preflight and visual inspection. |
 | Human specialist review | `NOT_OBTAINED_NOT_CLAIMED` | The AI audits are not human peer review. |
 | Formal verification | `EXTERNAL_HEADLINE_FORMALIZATION_EXISTS` | Schreib released an external Lean 4 formalization; this repository's alternative proof and additional results are not kernel checked here. |
 | Publication | `PUBLIC_V1_0_SUPERSEDED_V1_1_PENDING` | The public `v1.0.0` snapshot is retained historically but must not receive the paper DOI. |

@@ -21,6 +21,7 @@ required=(
   audits/PRIORITY_CORRECTION_2026-08-02.md
   audits/CLAIMS_EVIDENCE_MATRIX.md
   audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md
+  audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md
   auxiliary/README.md
   auxiliary/imbalance_breakthrough_verifier.py
   auxiliary/imbalance_breakthrough_verifier.log
@@ -38,6 +39,8 @@ required=(
   formalization/ARISTOTLE_STAGE1_STATUS.md
   release/V1.0.0_SUPERSESSION_NOTICE.md
   release/RELEASE_NOTES_v1.1.0.md
+  paper/BUILD_LOG_v1.1.0.txt
+  paper/PDF_PREFLIGHT_v1.1.0.txt
 )
 
 for path in "${required[@]}"; do
@@ -80,6 +83,16 @@ rg -q 'This repository contains no completed Lean, Isabelle, Coq, or Aristotle' 
   || fail "repository-scoped formalization boundary missing"
 rg -q 'ended at the platform time limit' formalization/ARISTOTLE_STAGE1_STATUS.md \
   || fail "timed-out Aristotle status missing"
+rg -q 'FINAL_VERSION_1_1_MANUSCRIPT_AUDIT: PASS' \
+  audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md \
+  || fail "current Version 1.1 manuscript audit missing"
+rg -q 'a1d689de2edc61dbbb946e597f1820a972a2ea71371b2ca1be456647a6b48473' \
+  paper/BUILD_LOG_v1.1.0.txt paper/PDF_PREFLIGHT_v1.1.0.txt \
+  audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md \
+  || fail "current Version 1.1 PDF hash record missing"
+actual_pdf_hash="$(shasum -a 256 paper/manuscript.pdf | awk '{print $1}')"
+[[ "$actual_pdf_hash" == "a1d689de2edc61dbbb946e597f1820a972a2ea71371b2ca1be456647a6b48473" ]] \
+  || fail "paper/manuscript.pdf is not the audited Version 1.1 artifact"
 
 if [[ -f paper/manuscript.tex ]]; then
   rg -n '\\author\s*\{' paper/manuscript.tex && fail "manuscript must not contain an author command"
@@ -134,6 +147,10 @@ if [[ "${REQUIRE_RELEASE_PAPER:-0}" == "1" ]]; then
   [[ -f paper/V2_CHANGELOG.md ]] || fail "release manuscript changelog missing"
   [[ -f paper/V2_TO_V2_1_CHANGELOG.md ]] || fail "Version 2-to-2.1 changelog missing"
   [[ -f paper/PRIORITY_CORRECTION_CHANGELOG.md ]] || fail "priority-correction changelog missing"
+  [[ -f paper/BUILD_LOG_v1.1.0.txt ]] || fail "Version 1.1 build log missing"
+  [[ -f paper/PDF_PREFLIGHT_v1.1.0.txt ]] || fail "Version 1.1 PDF preflight missing"
+  [[ -f audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md ]] \
+    || fail "Version 1.1 final manuscript audit missing"
   [[ -f paper/SOURCE_TO_MANUSCRIPT_COMPARISON.md ]] || fail "release source comparison missing"
   [[ -f paper/MATHEMATICAL_PRESERVATION_V2_TO_V2_1.json ]] \
     || fail "Version 2-to-2.1 mathematical preservation record missing"

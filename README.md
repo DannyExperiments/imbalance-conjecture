@@ -115,6 +115,8 @@ here.
 - [`audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md`](audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md)
   records the historical Version 2.1 audit; its release approval is superseded
   by the priority correction.
+- [`audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md`](audits/FINAL_MANUSCRIPT_AUDIT_STATUS_v1.1.0.md)
+  is the controlling audit of the rebuilt, priority-corrected manuscript.
 - [`scripts/verify.sh`](scripts/verify.sh) validates the sanitized release surface and replays the independent checkers.
 
 ## Verification
