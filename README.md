@@ -14,7 +14,7 @@ This repository gives a later independent proof of the Imbalance Conjecture and
 develops quantitative deficit bounds, a complete threshold-equality
 classification, and an extension allowing one equal-degree edge.
 
-> **Priority correction (2 August 2026).** A. A. Raoui's preprint
+> **Priority correction and extension search (3 August 2026).** A. A. Raoui's preprint
 > [“The Imbalance Conjecture”](https://doi.org/10.5281/zenodo.20589431),
 > deposited on 8 June 2026, contains an earlier proof of exactly the same
 > finite-simple locally-irregular theorem. James Alexander Schreib subsequently
@@ -22,10 +22,13 @@ classification, and an extension allowing one equal-degree edge.
 > on 25 July 2026, including the relevant Erdős--Gallai inequality for every
 > edge subset. Accordingly, this repository claims neither a first solution nor
 > priority for its threshold-set statement. Its proof architecture is different.
-> The quantitative slack, equality classification, and one-equal-edge extension
-> were not found in those two records; broader novelty has not been established
-> and requires a refreshed focused search. See the
-> [full correction record](audits/PRIORITY_CORRECTION_2026-08-02.md).
+> A targeted primary-source and DOI search through 3 August 2026 found no
+> earlier statement of the explicit profile-sensitive deficit bounds, the
+> source-graph equality classification, the zero-edge correction inequalities,
+> or the one-equal-edge theorem. These additions are therefore presented as
+> apparently new with moderate confidence; absolute priority is not claimed.
+> See the [full correction record](audits/PRIORITY_CORRECTION_2026-08-02.md)
+> and [focused extension search](audits/EXTENSION_PRIORITY_SEARCH_2026-08-03.md).
 
 ## The historical problem
 
@@ -80,9 +83,9 @@ The labeled realization, complete-graph b-factor formulation, signed-incidence e
 | Independent ordinary proof | Complete |
 | Independent AI adversarial mathematical audit | Pass; high confidence |
 | Independent finite corroboration | Pass; non-load-bearing |
-| Literature and priority record | Corrected 2 August 2026; the earlier audit is superseded |
+| Literature and priority record | Corrected 2 August 2026; focused extension search completed 3 August 2026; the earlier audit is superseded |
 | Headline priority | Earlier proof by Raoui; no first-solution claim here |
-| Additional results | Slack/equality/one-equal-edge results absent from Raoui and Schreib; broader priority review incomplete |
+| Additional results | Four quantitative/structural additions apparently new after a targeted search through 3 August 2026; moderate confidence; absolute priority not claimed |
 | Human specialist review | Not obtained; not claimed |
 | Formalization | Published Lean 4 formalization by Schreib; source inspected but not rebuilt here. This repository's alternative argument and extensions are not kernel checked |
 | Manuscript | Priority-corrected Version 1.1 release candidate |
