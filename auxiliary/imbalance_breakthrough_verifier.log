@@ -1,0 +1,8 @@
+COUNTERPACKET_OK
+degrees= {'a1': 1, 'a2': 1, 'a3': 1, 'b': 1, 'c': 1, 'p': 2, 'q': 2, 'u': 6, 'v': 6, 'w': 6, 'x': 4, 'y': 4, 'z': 5}
+weights= [5, 5, 5, 5, 5, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+EG_deficits= [14, 23, 26, 29, 28, 30, 34, 40, 48, 62, 78, 96, 116, 138, 162, 190, 220, 252, 286, 322]
+k=5: TV=2, Q=4, residual_gap=-2, Psi=7, Delta_5=28
+ATLAS_OK (114, 754, 10258) (graphs, threshold cases, tie choices)
+TREES_OK (4709, 246708, 953294) (graphs, threshold cases, tie choices)
+PROFILES_OK (1295871, 4, (3, 2, (1, 0))) (profiles, smallest gap, profile)

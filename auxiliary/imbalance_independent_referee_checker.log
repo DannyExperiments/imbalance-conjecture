@@ -1,0 +1,86 @@
+EXHAUSTIVE_LABELED_DONE n=0 graphs=1
+EXHAUSTIVE_LABELED_DONE n=1 graphs=1
+EXHAUSTIVE_LABELED_DONE n=2 graphs=2
+EXHAUSTIVE_LABELED_DONE n=3 graphs=8
+EXHAUSTIVE_LABELED_DONE n=4 graphs=64
+EXHAUSTIVE_LABELED_DONE n=5 graphs=1024
+EXHAUSTIVE_BIPARTITE_DONE sides=2+6 graphs=4096
+EXHAUSTIVE_BIPARTITE_DONE sides=3+4 graphs=4096
+RANDOM_DONE graphs=500
+PROFILE_EXHAUSTIVE_DONE kmax=50 profiles=1295871 min_gap=4 witness=(3, 2, (1, 0), 2, 4)
+TARGET_UNIQUENESS_DONE {('complete', 1): 1, ('complete', 2): 1, ('complete', 3): 1, ('critical', 2): 12, ('complete', 4): 1, ('critical', 3): 60, ('complete', 5): 1, ('critical', 4): 120, ('complete', 6): 1}
+ALL_INDEPENDENT_CHECKS_PASS
+{
+  "minima": {
+    "(11)": {
+      "value": 0
+    },
+    "(11a)": {
+      "value": 0
+    },
+    "(12)x4": {
+      "value": 1
+    },
+    "(13)x4": {
+      "value": 1
+    },
+    "(19)": {
+      "value": 4
+    },
+    "(3)": {
+      "value": 0
+    },
+    "(5)": {
+      "value": 0
+    },
+    "Z1": {
+      "value": 0
+    },
+    "Z2": {
+      "value": 7
+    },
+    "Z3": {
+      "value": 0
+    },
+    "Z4": {
+      "value": 0
+    },
+    "Z7x4": {
+      "value": 0
+    },
+    "Z8x4": {
+      "value": 1
+    }
+  },
+  "stats": {
+    "at_most_one_zero": 5948,
+    "equality_cases": 7034,
+    "exactly_one_zero": 2418,
+    "graphs": 9850,
+    "graphs_nonempty": 9826,
+    "identities_2": 58367,
+    "inequalities_11": 44405,
+    "inequalities_12": 44405,
+    "inequalities_13": 43968,
+    "inequalities_19": 7948,
+    "inequalities_3": 58367,
+    "inequalities_5": 58367,
+    "locally_irregular": 3506,
+    "one_zero_exception_21": 154,
+    "one_zero_single_head": 3926,
+    "one_zero_top_sets": 9686,
+    "r0_repairs": 56,
+    "random_graphs": 558,
+    "random_threshold_sets": 8876,
+    "threshold_sets_li": 58367,
+    "threshold_sets_zero": 75895,
+    "top_sets_li": 45709,
+    "top_tie_sets_li": 43297,
+    "zero_final": 75895,
+    "zero_z4": 75895,
+    "zero_z5": 102965,
+    "zero_z6": 102965,
+    "zero_z7": 102965,
+    "zero_z8": 58388
+  }
+}
