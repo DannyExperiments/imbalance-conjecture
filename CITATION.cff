@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this independent proof and its extensions, cite the priority-corrected release below and also consult the earlier Raoui proof."
+message: "If you use this independent proof and its extensions, cite the release below and also consult the earlier Raoui proof."
 title: "Quantitative Erdos-Gallai Deficits for Edge-Imbalance Multisets"
 type: software
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-08-02
+doi: "10.5281/zenodo.21762476"
 repository-code: "https://github.com/DannyExperiments/imbalance-conjecture"
 authors:
   - name: "DannyExperiments"
@@ -13,7 +14,8 @@ preferred-citation:
   authors:
     - name: "DannyExperiments"
   year: 2026
-  url: "https://github.com/DannyExperiments/imbalance-conjecture"
+  doi: "10.5281/zenodo.21762477"
+  url: "https://github.com/DannyExperiments/imbalance-conjecture/releases/tag/v1.1.1"
 keywords:
   - graphical sequence
   - degree sequence
