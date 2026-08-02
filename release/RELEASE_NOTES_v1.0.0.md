@@ -1,7 +1,13 @@
-# Release notes v1.0.0
+# Release notes v1.0.0 — superseded historical snapshot
 
-This release presents a complete proof of the Imbalance Conjecture, the
-stronger arbitrary threshold-set theorem, the audited equality and
+> **Do not use this version for priority or DOI citation.** After release, an
+> earlier exact proof by Raoui (DOI `10.5281/zenodo.20589431`) and an external
+> Lean formalization by Schreib (DOI `10.5281/zenodo.21542164`) were located.
+> The tag and assets remain unchanged as historical evidence. Version 1.1.0
+> provides corrected framing and metadata.
+
+This release presented what is now correctly classified as a later independent
+proof of the Imbalance Conjecture, a directly proved threshold-set lemma, the audited equality and
 one-equal-edge extensions, independent finite corroboration, and the
 documented literature/priority assessment.
 
@@ -10,4 +16,5 @@ preflight, visual-inspection, exact Version 2 preservation, source-faithfulness,
 and checksum records. The final-manuscript audit passes. Pinned GitHub Actions
 workflows replay the public repository gate and rebuild the PDF.
 
-Human specialist review and proof-assistant verification were not obtained. The result is described as apparently new with moderate confidence, not as a certified first proof.
+The original release's “apparently new” conclusion was incorrect and is
+withdrawn. Human specialist review was not obtained.

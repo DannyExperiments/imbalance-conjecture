@@ -1,28 +1,17 @@
-# Final manuscript audit status
+# Final manuscript audit status — historical Version 2.1 record
 
-The canonical post-literature Version 2.1 manuscript package has been received,
+> **Superseded for current release approval.** This audit predates the discovery
+> of Raoui's earlier proof and Schreib's Lean formalization. Its mathematical
+> and layout findings remain evidence about Version 2.1, but its literature and
+> public-release conclusions do not approve the priority-corrected manuscript.
+> See `PRIORITY_CORRECTION_2026-08-02.md`.
+
+The canonical post-literature Version 2.1 manuscript package was received,
 integrity-checked, independently compared with Version 2, visually inspected,
-and installed on the sanitized public-release worktree.
-
-Controlling archive:
-
-```text
-THE_IMBALANCE_CONJECTURE_VERSION_2_1_POST_LITERATURE_2026-08-02.zip
-SHA-256 7dd54873d651654f3508d977d7660260fd053c301181da0a525ae3337ceaa638
-```
-
-Installed canonical files:
-
-```text
-paper/manuscript.tex
-SHA-256 6ba7493f5f7d54288582e102c5a309d0fadb6c73a00b290f95fcc87deb55ce59
-
-paper/manuscript.pdf
-SHA-256 d7282af267d46969f0847e88d00fa89e2b1c6bd06cc1afa29a8b2332d7dcccac
-
-paper/references.bib
-SHA-256 f0de679a60a486885ece83e44c7f1f854680ffd594180c73b5322cf412e3bbf2
-```
+and installed on the sanitized public-release worktree. The private controlling
+archive is retained offline; its filename and package hash are deliberately not
+published here. The installed public paths were `paper/manuscript.tex`,
+`paper/manuscript.pdf`, and `paper/references.bib`.
 
 Independent final-manuscript adjudication:
 
@@ -67,6 +56,6 @@ Aristotle Stage 1 attempt ended at the platform time limit and returned no
 bankable certificate. Contact with Sergiy Kozerenko or Andrii Serdiuk remains
 optional post-timestamp outreach and is not represented as endorsement.
 
-This audit approves the exact installed Version 2.1 manuscript for the owner's
-private review and release decision. It does not itself create a public
-timestamp, commit, tag, DOI, publication, journal submission, or peer review.
+At the time it was issued, this audit approved the exact installed Version 2.1
+manuscript for the owner's release decision. That approval is now superseded
+for citation, DOI, and current release purposes by the priority correction.

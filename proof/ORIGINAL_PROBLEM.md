@@ -1,4 +1,9 @@
-# Imbalance Conjecture — frozen statement
+# Imbalance Conjecture — historical campaign input
+
+> The open-status assumption used when this input was frozen was stale. Raoui's
+> earlier proof, DOI `10.5281/zenodo.20589431`, was located on 2 August 2026.
+> This file is preserved as the exact problem attacked, not as a current claim
+> that the conjecture was open.
 
 Run ID: `imbalance-director-20260801-132101-ultra`  
 Problem ID: `OPG-57613`  
@@ -34,7 +39,7 @@ for `1 <= k <= m`, together with even total sum.
 
 A full solve is exactly one of:
 
-1. a complete proof for every finite simple graph under the displayed
+1. an independent complete proof for every finite simple graph under the displayed
    hypothesis, with every Erdős–Gallai or realization step justified; or
 2. one explicit finite simple graph `G` satisfying the hypothesis for which
    the exact imbalance sequence fails a named Erdős–Gallai inequality, with a
@@ -48,4 +53,3 @@ construction whose feasibility is unproved is not a solve.
 Kozerenko and Serdiuk (2023), Conjecture 5.5, report exhaustive verification
 for graphs on at most 12 vertices. Their Proposition 5.4 refutes a different,
 second imbalance conjecture; it does not refute the conjecture frozen here.
-

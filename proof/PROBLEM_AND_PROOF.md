@@ -1,4 +1,8 @@
-# A proof of the Imbalance Conjecture
+# An independent proof of the Imbalance Conjecture
+
+> Raoui deposited an earlier proof on 8 June 2026,
+> DOI `10.5281/zenodo.20589431`. The argument below is retained as a different,
+> later proof and is not presented as the first solution.
 
 Date: 2026-08-01  
 Problem ID: `OPG-57613`
@@ -18,7 +22,7 @@ degrees.  Then the multiset
 
 is the degree multiset of a finite simple graph.
 
-More strongly, if its elements are arranged as
+The proof first establishes the following direct threshold statement. If its elements are arranged as
 
 \[
 x_1\ge x_2\ge\cdots\ge x_m>0,

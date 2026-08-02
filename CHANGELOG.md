@@ -1,6 +1,17 @@
 # Changelog
 
-## Unreleased release candidate - 2026-08-02
+## v1.1.0 — priority correction
+
+- Reclassified the headline theorem as a later independent proof after locating
+  Raoui's 8 June 2026 proof.
+- Added Schreib's 25 July 2026 external Lean formalization.
+- Removed the false stronger/novelty framing for threshold-set nonnegativity.
+- Retitled and reframed the manuscript around quantitative deficit bounds,
+  equality classification, and the one-equal-edge extension.
+- Marked `v1.0.0` as a superseded historical snapshot.
+- Replaced the failed literature conclusion with a dated correction record.
+
+## Historical v1.0.0 release - 2026-08-02
 
 - Created a sanitized public/private split.
 - Preserved the complete corrected proof.
@@ -20,4 +31,5 @@
   and public-safety record; the final-manuscript audit passes.
 - Added release-valid citation metadata naming DannyExperiments as the sole
   conventional author and retaining AI contribution disclosure separately.
-- Froze theorem discovery; only owner-controlled release mechanics remain.
+- Froze theorem discovery at the time. The later priority correction reopened
+  literature verification for the additional results.

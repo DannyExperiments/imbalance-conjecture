@@ -1,14 +1,13 @@
-# Source-to-manuscript comparison
+# Source-to-manuscript comparison — historical Version 2.1 record
+
+> The mathematical-preservation comparison remains historical evidence. Its
+> novelty conclusion was invalidated by the 2 August 2026 priority correction.
 
 ## Immutable baseline
 
-The Version 2 archive was verified before use:
-
-```text
-SHA-256: b311713693c8b82411795dbff09c43c541692ca7d16db2dcb896b990b1b02d1d
-Internal checksum ledger: PASS
-Archive integrity test: PASS
-```
+The private Version 2 archive was verified before use. Its private package
+filename and archive hash are retained offline rather than published here.
+The internal checksum ledger and archive-integrity test both passed.
 
 Version 2.1 is a separate derivative. The baseline was not edited in place and is not embedded in this package.
 
@@ -21,7 +20,7 @@ Version 2.1 is a separate derivative. The baseline was not edited in place and i
 | Kozerenko (2019) | *Journal of Advanced Mathematical Studies* 12(1), 50--62 | Multigraph-target theorem explicitly distinguished from the present simple-graph conclusion |
 | Kozerenko--Serdiuk | *Opuscula Mathematica* 43(1) (2023), 81--100; published online December 30, 2022 | Conjecture 5.5 and verification through source order 12 retained |
 
-The arbitrary-subset Erdős--Gallai criterion and strong/reduced-index reductions remain described as prior degree-sequence machinery. The source-graph threshold theorem is distinguished as the new imbalance-specific forcing statement. Labeled realization, complete-graph b-factor language, the signed oriented incidence equation, transferred degree-sequence inequalities, and the locally irregular decomposition observation remain described as standard reformulations or immediate consequences.
+The arbitrary-subset Erdős--Gallai criterion and strong/reduced-index reductions remain described as prior degree-sequence machinery. The source-graph threshold theorem is treated as the direct proof engine of this independent argument, not as a stronger or priority-bearing conclusion. Labeled realization, complete-graph b-factor language, the signed oriented incidence equation, transferred degree-sequence inequalities, and the locally irregular decomposition observation remain described as standard reformulations or immediate consequences.
 
 ## Residual source limitations
 
@@ -29,7 +28,11 @@ The manuscript uses the required five-gap statement exactly:
 
 > Residual source gaps include an ambiguous inaccessible 2025 Serdiuk listing, an unidentified AI-summary/search snippet, one Scholar-indexed citation to the 2014 paper that could not be independently identified, incomplete subscription-database coverage, and possible unindexed or unpublished work.
 
-The qualified novelty statement remains unchanged: apparently new with moderate novelty confidence; absolute historical priority is not claimed.
+This historical novelty statement is superseded. Raoui's June 2026 proof and
+Schreib's July 2026 Lean formalization predate this manuscript. No first-proof
+or headline-theorem novelty claim survives. Priority for the quantitative,
+equality, and one-equal-edge results remains unresolved pending a focused
+search.
 
 ## Mathematical source comparison
 
@@ -55,4 +58,8 @@ Both PDFs have 15 A4 pages. At 180 dpi, pages 3--14 are pixel-identical. Differe
 
 ## Source-conflict disposition
 
-No unresolved source conflict required a theorem change or narrower mathematical wording. The only unresolved matters are the five documented literature-coverage gaps. Human specialist review and proof-assistant verification have not been obtained.
+The priority correction required historical and expository changes but no
+change to the proved mathematical statements. Human specialist review has not
+been obtained. Schreib's external Lean development verifies the headline
+theorem by a different route; it does not verify this manuscript's deficit
+argument or additional results.

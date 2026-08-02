@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent finite checks for the strengthened Imbalance results.
+"""Independent finite checks for the quantitative Imbalance results.
 
 These checks are not proofs. They verify:
   * the profile-dependent bound and 4 p Psi - C >= 4 p through k=50;

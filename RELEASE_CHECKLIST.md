@@ -7,11 +7,14 @@
 - [x] All six audit clarifications incorporated in the frozen candidate.
 - [x] Dependency-free Python checker replayed successfully.
 - [x] Exhaustive C++20 checker replayed successfully over all labeled seven-vertex graphs.
-- [x] Current-open-status and novelty literature audit completed through August 1, 2026.
+- [x] Initial literature audit completed through August 1, 2026.
+- [x] Initial audit marked superseded after locating the Raoui and Schreib records.
+- [x] Headline and threshold priority claims removed.
+- [ ] Focused priority search completed for slack, equality, and one-equal-edge results.
 - [x] Public/private repository separation established.
 - [x] Authorship and AI-contribution convention fixed.
 
-## Required before public push
+## Historical v1.0.0 release work
 
 - [x] Produce post-literature Version 2 TeX, bibliography, and PDF without
       changing the audited mathematics.
@@ -31,13 +34,19 @@
 - [x] Regenerate and verify `SHA256SUMS.txt` after every release-tree change.
 - [x] Run `REQUIRE_RELEASE_PAPER=1 bash scripts/verify.sh` on the exact final
       tree.
-- [ ] Make one coherent release commit and annotated tag.
+- [x] Original public release commit and tag created; now superseded.
 
 ## Explicit nonclaims
 
 - [x] Human specialist review was not obtained.
+- [x] Raoui's earlier proof and Schreib's formalization are cited prominently.
 - [x] Absolute historical priority is not claimed.
-- [x] No proof-assistant verification is claimed.
-- [x] Public visibility will not be described as peer review or publication acceptance.
+- [ ] Priority-corrected manuscript rebuilt and visually inspected.
+- [ ] `v1.1.0` immutable release published and `v1.0.0` marked superseded.
+- [ ] DOI deposited only for the corrected `v1.1.0` paper.
+- [x] No proof-assistant verification of this repository's alternative proof
+      or extension theorems is claimed; Schreib's external Lean formalization
+      of the headline theorem is cited.
+- [x] Public visibility is not described as peer review or publication acceptance.
 
 Formalization is valuable but is not a prerequisite for public timestamping.

@@ -2,6 +2,10 @@
 
 ## Build status
 
+> The environment record below documents the historical Version 2.1 build.
+> The priority-corrected manuscript requires a fresh build using the same
+> procedure before Version 1.1.0 is released.
+
 The Version 2.1 PDF was built without internet access from a fresh temporary directory. The same TeX/BibTeX toolchain used for Version 2 was retained.
 
 ## Actual environment used

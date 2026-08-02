@@ -18,6 +18,7 @@ required=(
   proof/EXTENSIONS_ERRATA.md
   audits/MATHEMATICAL_AUDIT.md
   audits/LITERATURE_PRIORITY_AUDIT.md
+  audits/PRIORITY_CORRECTION_2026-08-02.md
   audits/CLAIMS_EVIDENCE_MATRIX.md
   audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md
   auxiliary/README.md
@@ -35,6 +36,8 @@ required=(
   verification/EXHAUSTIVE_N7_LOG.txt
   formalization/README.md
   formalization/ARISTOTLE_STAGE1_STATUS.md
+  release/V1.0.0_SUPERSESSION_NOTICE.md
+  release/RELEASE_NOTES_v1.1.0.md
 )
 
 for path in "${required[@]}"; do
@@ -64,25 +67,36 @@ if rg -n 'sandbox:/|/mnt/data|/Users/|chatgpt\.com/g/' \
   fail "private or ephemeral path found"
 fi
 
-rg -q 'COMPLETE_PROOF_AI_AUDIT_PASS_APPARENTLY_NEW_MODERATE_CONFIDENCE_V2_1_INSTALLED_FINAL_MANUSCRIPT_AUDIT_PASS' STATUS.md \
+rg -q 'INDEPENDENT_PROOF_AI_AUDIT_PASS_PRIOR_PROOF_IDENTIFIED_PRIORITY_CORRECTED_V1_1_CANDIDATE' STATUS.md \
   || fail "status marker missing"
-rg -qi 'apparently new' README.md || fail "qualified novelty language missing"
-rg -qi 'Human specialist review.*have not been obtained' README.md \
+rg -qi 'independent proof' README.md || fail "independent-proof framing missing"
+rg -q '10\.5281/zenodo\.20589431' README.md audits/PRIORITY_CORRECTION_2026-08-02.md \
+  || fail "Raoui priority record missing"
+rg -q '10\.5281/zenodo\.21542164' README.md formalization/README.md \
+  || fail "Schreib formalization record missing"
+rg -qi 'Human specialist review.*(has|have) not been obtained' README.md \
   || fail "human-review nonclaim missing"
-rg -q 'No completed Lean, Isabelle, Coq, or Aristotle certificate' formalization/README.md \
-  || fail "formalization boundary missing"
+rg -q 'This repository contains no completed Lean, Isabelle, Coq, or Aristotle' formalization/README.md \
+  || fail "repository-scoped formalization boundary missing"
 rg -q 'ended at the platform time limit' formalization/ARISTOTLE_STAGE1_STATUS.md \
   || fail "timed-out Aristotle status missing"
 
 if [[ -f paper/manuscript.tex ]]; then
   rg -n '\\author\s*\{' paper/manuscript.tex && fail "manuscript must not contain an author command"
-  rg -n -i 'literature (and |/ )?priority audit.*pending|novelty.*not asserted' paper/manuscript.tex \
-    && fail "stale pre-literature manuscript language found"
+  rg -Fq '\cite{Raoui2026}' paper/manuscript.tex \
+    || fail "Raoui citation missing from manuscript"
+  rg -Fq '\cite{Schreib2026}' paper/manuscript.tex \
+    || fail "Schreib citation missing from manuscript"
+  rg -q 'doi[[:space:]]*=.*10\.5281/zenodo\.20589431' paper/references.bib \
+    || fail "Raoui DOI missing from bibliography"
+  rg -q 'doi[[:space:]]*=.*10\.5281/zenodo\.21542164' paper/references.bib \
+    || fail "Schreib DOI missing from bibliography"
+  if rg -n -i 'no retrievable earlier complete solution|threshold-set strengthening|main and strengthened results are therefore apparently new' \
+      paper/manuscript.tex; then
+    fail "superseded priority language remains in active manuscript"
+  fi
   rg -q 'pp\.~81--100' paper/manuscript.tex \
     || fail "authoritative 2023 page range missing from manuscript"
-  rg -q 'one Scholar-indexed citation to the 2014 paper that could not be independently identified' \
-    paper/manuscript.tex \
-    || fail "complete five-gap disclosure missing from manuscript"
   rg -q 'title[[:space:]]*=.*Graphs with graphic imbalance sequences' paper/references.bib \
     || fail "exact MathOverflow title missing from bibliography"
   rg -q 'pages[[:space:]]*=.*81--100' paper/references.bib \
@@ -119,6 +133,7 @@ if [[ "${REQUIRE_RELEASE_PAPER:-0}" == "1" ]]; then
   [[ -f paper/PDF_PREFLIGHT.txt ]] || fail "release PDF preflight missing"
   [[ -f paper/V2_CHANGELOG.md ]] || fail "release manuscript changelog missing"
   [[ -f paper/V2_TO_V2_1_CHANGELOG.md ]] || fail "Version 2-to-2.1 changelog missing"
+  [[ -f paper/PRIORITY_CORRECTION_CHANGELOG.md ]] || fail "priority-correction changelog missing"
   [[ -f paper/SOURCE_TO_MANUSCRIPT_COMPARISON.md ]] || fail "release source comparison missing"
   [[ -f paper/MATHEMATICAL_PRESERVATION_V2_TO_V2_1.json ]] \
     || fail "Version 2-to-2.1 mathematical preservation record missing"
@@ -126,12 +141,12 @@ if [[ "${REQUIRE_RELEASE_PAPER:-0}" == "1" ]]; then
     || fail "Version 2-to-2.1 render comparison missing"
   [[ -f paper/PDF_TEXT_REFERENCE_SCAN_V2_1.txt ]] \
     || fail "Version 2.1 PDF text/reference scan missing"
-  rg -q 'INDEPENDENT_FINAL_MANUSCRIPT_AUDIT: PASS' audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md \
-    || fail "final manuscript audit PASS is absent"
+  rg -q 'Superseded for current release approval' audits/FINAL_MANUSCRIPT_AUDIT_STATUS.md \
+    || fail "historical manuscript audit is not marked superseded"
 fi
 
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git diff --check
 fi
 
-echo "Public-release candidate integrity and disclosure checks passed."
+echo "Public repository integrity and disclosure checks passed."

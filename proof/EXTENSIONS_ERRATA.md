@@ -55,4 +55,6 @@ The independent referee found no false mathematical inference after these local 
 - the zero-edge correction lemma;
 - the one-equal-edge extension.
 
-Historical priority and publication status remain outside the scope of that no-internet audit and are still pending the separate literature review.
+This sentence recorded the status at the time of the no-internet audit. It is
+superseded by `../audits/PRIORITY_CORRECTION_2026-08-02.md`: Raoui's earlier
+proof and Schreib's external Lean formalization have since been located.

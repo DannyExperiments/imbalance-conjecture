@@ -6,10 +6,10 @@
 \usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-  pdftitle={The Imbalance Conjecture},
+  pdftitle={Quantitative Erdős--Gallai Deficits for Edge-Imbalance Multisets},
   pdfauthor={},
-  pdfsubject={A proof of the Imbalance Conjecture, a threshold-set strengthening, and a one-equal-edge extension},
-  pdfkeywords={graphical sequence, edge imbalance, Erdős--Gallai theorem, locally irregular graph}
+  pdfsubject={An independent proof of the imbalance theorem, quantitative deficit bounds, equality classification, and a one-equal-edge extension},
+  pdfkeywords={graphical sequence, edge imbalance, Erdős--Gallai theorem, locally irregular graph, equality cases}
 }
 
 \numberwithin{equation}{section}
@@ -32,7 +32,7 @@
 \newcommand{\one}{\mathbf 1}
 \newcommand{\E}{\mathbb E}
 
-\title{The Imbalance Conjecture}
+\title{Quantitative Erd\H{o}s--Gallai Deficits for Edge-Imbalance Multisets}
 \date{August 2, 2026}
 \subjclass[2020]{05C07, 05C35, 05C70}
 \keywords{graphical sequence, degree sequence, edge imbalance, Erd\H{o}s--Gallai theorem, locally irregular graph}
@@ -41,10 +41,10 @@
 
 \begin{abstract}
 For a finite simple graph $G$, its edge-imbalance multiset is $\Ical(G)=\{\lvert d_G(u)-d_G(v)\rvert:uv\in E(G)\}$, with multiplicity.
-We prove the Imbalance Conjecture of Kozerenko and Skochko: for every finite simple graph in which adjacent vertices have unequal degrees, the multiset of endpoint-degree differences is graphical.
-More strongly, if $S\subseteq E(G)$ has $k$ edges and every edge of $S$ has imbalance at least $k$, then $S$ satisfies the corresponding subset Erd\H{o}s--Gallai inequality, whether or not $S$ consists of the largest imbalances.
-We obtain quantitative slack and classify every equality case of this threshold theorem.
-Finally, we prove that the full edge-imbalance multiset remains graphical when at most one edge of $G$ joins equal-degree vertices.
+A complete proof of the Imbalance Conjecture was deposited by Raoui in June 2026; we give an independent proof based on an exact subset Erd\H{o}s--Gallai deficit identity, a head-reserve inequality, and a weighted residual cross-payment.
+For every $k$-edge set whose members have imbalance at least $k$, this argument directly proves the corresponding labeled subset inequality.
+The method yields profile-sensitive quantitative slack and a complete classification of equality in the direct threshold-set bound.
+It also proves that the full edge-imbalance multiset remains graphical when at most one edge joins equal-degree vertices.
 \end{abstract}
 
 \maketitle
@@ -61,9 +61,11 @@ If $G$ is a finite simple graph and $d_G(u)\ne d_G(v)$ for every edge $uv\in E(G
 is the degree multiset of a finite simple graph. \hfill\textup{(IC)}
 \end{minipage}}
 \end{center}
-We prove (IC) affirmatively for every finite simple graph satisfying its displayed hypothesis; the result is neither a counterexample nor a theorem restricted to a special source class.
+A complete affirmative proof was deposited by A.~A. Raoui on Zenodo on June~8, 2026 \cite{Raoui2026}.  A separate Lean~4 formalization was deposited by James Alexander Schreib on July~25, 2026 \cite{Schreib2026}.  Both records predate this manuscript.  Accordingly, this paper does not claim to solve a then-open problem or to provide the first proof of \textup{(IC)}.  It gives an independent proof and develops quantitative equality results and an extension beyond local irregularity.
 
-Kozerenko and Skochko verified the conjecture through source order nine in addition to their class results \cite{KozerenkoSkochko2014}.  Kozerenko later proved a nearby theorem in which positivity of all edge imbalances guarantees realization by a \emph{multigraph} \cite[pp.~50--62]{Kozerenko2019}; allowing a multigraph target is strictly weaker than the finite-simple-graph conclusion proved here.  Kozerenko and Serdiuk reported verification through source order twelve, but continued to state the simple-graph assertion as Conjecture~5.5 \cite{KozerenkoSerdiuk2023}.
+We give an independent proof of \textup{(IC)} for every finite simple graph satisfying its displayed hypothesis.
+
+Kozerenko and Skochko verified the conjecture through source order nine in addition to their class results \cite{KozerenkoSkochko2014}.  Kozerenko later proved a nearby theorem in which positivity of all edge imbalances guarantees realization by a \emph{multigraph} \cite[pp.~50--62]{Kozerenko2019}; allowing a multigraph target is strictly weaker than the finite-simple-graph conclusion subsequently proved by Raoui and reproved independently here.  Kozerenko and Serdiuk reported verification through source order twelve, but continued to state the simple-graph assertion as Conjecture~5.5 \cite{KozerenkoSerdiuk2023}.
 
 A finite sequence of nonnegative integers is called \emph{graphical} if it is the degree sequence of a finite simple graph.  A graph in which adjacent vertices have unequal degrees is commonly called \emph{locally irregular} \cite{RautenbachVolkmann2002}; the associated total imbalance belongs to the irregularity theory initiated by Albertson \cite{Albertson1997}.  We write
 \[
@@ -81,15 +83,15 @@ We shall use the Erd\H{o}s--Gallai criterion \cite{ErdosGallai1960}: a nonincrea
 \le k(k-1)+\sum_{i=k+1}^n\min\{k,d_i\}.
 \tag{EG}
 \end{equation}
-The arbitrary-subset form of this criterion was already part of the original MathOverflow discussion and was recorded in Kozerenko's 2019 treatment \cite{KozerenkoMO2013,Kozerenko2019}.  Likewise, reductions to strong or reduced indices are prior degree-sequence machinery \cite{ZverovichZverovich1992,TripathiVijay2003}.  The new source-graph statement proved below is different: every $k$-edge set whose members all have source imbalance at least $k$ is forced to satisfy the corresponding known subset inequality.  Earlier threshold work on imbalanced edges controlled extremal counts rather than this Erd\H{o}s--Gallai deficit \cite{RautenbachSchiermeyer2006}.
+The arbitrary-subset form of this criterion was already part of the original MathOverflow discussion and was recorded in Kozerenko's 2019 treatment \cite{KozerenkoMO2013,Kozerenko2019}.  Likewise, reductions to strong or reduced indices are prior degree-sequence machinery \cite{ZverovichZverovich1992,TripathiVijay2003}.  The threshold statement below is a direct source-graph route to graphicality, not a stronger conclusion than the already proved imbalance theorem: once graphicality is known, the arbitrary-subset criterion gives the nonnegative deficit for every labeled subset.  The additional content of the present method is its explicit profile-sensitive lower bounds and equality classification.  Earlier threshold work on imbalanced edges controlled extremal counts rather than these quantitative deficit formulas \cite{RautenbachSchiermeyer2006}.
 
-\begin{theorem}[Imbalance Conjecture]\label{thm:main}
+\begin{theorem}[Imbalance theorem, formerly the Imbalance Conjecture]\label{thm:main}
 If $G$ is a finite simple locally irregular graph, then $\Ical(G)$ is graphical.
 \end{theorem}
 
-A documented search through August 1, 2026 found no retrievable earlier complete solution for finite simple graphs.  The main and strengthened results are therefore apparently new with moderate novelty confidence.  Absolute historical priority is not claimed.  Residual source gaps include an ambiguous inaccessible 2025 Serdiuk listing, an unidentified AI-summary/search snippet, one Scholar-indexed citation to the 2014 paper that could not be independently identified, incomplete subscription-database coverage, and possible unindexed or unpublished work.
+Neither Theorem~\ref{thm:main} nor the bare nonnegativity conclusion of Theorem~\ref{thm:threshold} is claimed as new.  The results not found in the Raoui and Schreib records are the profile-sensitive quantitative bounds in Section~\ref{sec:equality}, the complete equality classification, and the one-equal-edge extension in Section~\ref{sec:one-zero}.  Because the earlier literature audit failed to retrieve those two records, that audit is superseded.  Broader novelty of these additional results remains provisional pending a refreshed targeted search; absolute priority is not claimed.
 
-\section{The arbitrary threshold-set theorem}
+\section{A direct threshold-set deficit bound}
 
 Fix a finite simple locally irregular graph $G$, put $m=\lvert E(G)\rvert$, and abbreviate $d_G(v)$ to $d(v)$ and $w_G(e)$ to $w(e)$.  For an edge set $S\subseteq E(G)$ of cardinality $k$, define its \emph{subset Erd\H{o}s--Gallai deficit} by
 \begin{equation}
@@ -100,7 +102,7 @@ D_G(S)
 \end{equation}
 Thus $D_G(S)\ge0$ is precisely the labeled subset form of the Erd\H{o}s--Gallai inequality for the edge-indexed vector $(w(e))_{e\in E(G)}$.
 
-\begin{theorem}[Arbitrary threshold-set theorem]\label{thm:threshold}
+\begin{theorem}[Direct threshold-set bound]\label{thm:threshold}
 Let $S\subseteq E(G)$ satisfy $\lvert S\rvert=k\ge1$ and
 \begin{equation}
 w(e)\ge k\qquad(e\in S).
@@ -455,7 +457,7 @@ If $e=uv$ with $d(u)>d(v)$, then $w(e)=d(u)-d(v)\le d(u)-1\le m-1$.  Hence $D_G(
 
 The profiles $h\ge2,p>0$, $p=0$, and $h=1$ exhaust $k\ge2$, and the last paragraph handles $k=1$.  This proves Theorem~\ref{thm:threshold}.
 
-\section{Deduction of the Imbalance Conjecture}\label{sec:deduction}
+\section{Independent deduction of graphicality}\label{sec:deduction}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 If $E(G)=\varnothing$, the empty multiset is graphical.  Assume $m=\lvert E(G)\rvert\ge1$ and list the positive imbalances in nonincreasing order:
@@ -500,9 +502,9 @@ D_G(S)=\Delta_k.
 Theorem~\ref{thm:threshold} gives $\Delta_k\ge0$, contradicting the choice of $k$.  Therefore all Erd\H{o}s--Gallai inequalities hold; together with \eqref{eq:parity}, the criterion proves that $\Ical(G)$ is graphical.
 \end{proof}
 
-\section{Quantitative slack and equality}\label{sec:equality}
+\section{Quantitative deficit bounds and equality}\label{sec:equality}
 
-The preceding proof contains strict profile information.  Retain the notation $h=\lvert U\rvert$, $p=k-h$, and $e_u=s_u-1$ for a threshold set $S$ with $k\ge2$.
+The distinctive quantitative content of the method begins here.  Retain the notation $h=\lvert U\rvert$, $p=k-h$, and $e_u=s_u-1$ for a threshold set $S$ with $k\ge2$.
 
 \begin{theorem}[Profile-sensitive slack]\label{thm:profile-slack}
 For every threshold set $S$ as in Theorem~\ref{thm:threshold}:
@@ -641,9 +643,9 @@ The graphical sequences arising in the two $k\ge2$ equality families have unique
 A graph on $t$ vertices in which every vertex has degree $t-1$ is $K_t$.  For the second sequence, equality in its $k$th Erd\H{o}s--Gallai inequality forces the $k$ degree-$k$ vertices to induce a clique, the two remaining vertices to be nonadjacent, and every edge incident with either remaining vertex to enter the clique.  Each clique vertex already has $k-1$ clique neighbors and therefore has exactly one neighbor among the two remaining vertices.  Their degrees $k-1$ and $1$ consequently partition the clique, determining the graph up to isomorphism.
 \end{proof}
 
-\section{One equal-degree edge}\label{sec:one-zero}
+\section{Extension to one equal-degree edge}\label{sec:one-zero}
 
-We now allow zero imbalances and prove a separate extension.  The argument requires explicit correction terms; it is not a formal consequence of Theorem~\ref{thm:main}.
+We now extend the graphicality conclusion beyond locally irregular graphs by allowing one zero imbalance.  This requires explicit correction terms and is not a formal consequence of Theorem~\ref{thm:main}.
 
 Let $G$ be an arbitrary finite simple graph, and let $S\subseteq E(G)$ satisfy $\lvert S\rvert=k\ge2$ and $w(e)\ge k$ for every $e\in S$.  Selected edges still have unique higher- and lower-degree endpoints, so define $s_v,\ell_v,U,H,h,p,e_u,B,Q,\TV_k(H),\Psi$, and
 \[
@@ -891,7 +893,7 @@ The realizing graph $F$ need not be connected, bipartite, locally irregular, uni
 
 \section*{Verification and provenance}
 
-DannyExperiments initiated and directed the investigation, selected the validation requirements, curated and validated the artifacts, and is the human curator and conventional manuscript author of the project.  OpenAI GPT-5.6 Pro generated the ordinary-language proof, strengthened results, and manuscript drafting.  OpenAI Codex coordinated the audit and provenance workflow and prepared the repository and reproducibility infrastructure.  No AI system is listed as an author.  The preserved mathematical and literature reports are AI-generated audits, not human peer review.  Human specialist review and proof-assistant verification have not been obtained.  The documented literature search supports only the qualified classification ``apparently new, moderate confidence.''
+DannyExperiments initiated and directed the investigation, selected the validation requirements, curated and validated the artifacts, and is the human curator and conventional manuscript author of the project.  OpenAI GPT-5.6 Pro generated the ordinary-language proof, quantitative deficit results, equality classification, one-equal-edge extension, and manuscript drafting.  OpenAI Codex coordinated the audit and provenance workflow and prepared the repository and reproducibility infrastructure.  No AI system is listed as an author.  The preserved mathematical reports are AI-generated audits, not human peer review.  Human specialist review and proof-assistant verification of the present deficit proof and extension theorems have not been obtained.  Schreib's separate Lean formalization \cite{Schreib2026} does not kernel-check the present argument or its one-equal-edge extension.  The previous literature report is superseded because it missed both the Raoui and Schreib records.  No novelty claim is made for the imbalance theorem itself; the quantitative and one-equal-edge results have only provisional novelty status pending a refreshed targeted search.
 
 \appendix
 

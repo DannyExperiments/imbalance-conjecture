@@ -1,4 +1,9 @@
-# Aristotle Stage 1 status
+# Aristotle Stage 1 status — historical local attempt
+
+> Schreib's external Lean formalization, DOI
+> `10.5281/zenodo.21542164`, predates this incomplete attempt. Nothing in this
+> file should be read as a claim that the original theorem lacked a completed
+> formalization.
 
 - **Target:** the arbitrary threshold-set theorem only.
 - **Submitted:** 2 August 2026.
