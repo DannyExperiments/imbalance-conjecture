@@ -19,7 +19,7 @@ The script:
 4. checks that no manuscript author command is present;
 5. runs the dependency-free Python checker and compares its terminal success marker;
 6. compiles the C++20 checker with warnings enabled, runs it, and compares its exact output;
-7. checks the installed canonical manuscript files; and
+7. checks the installed priority-corrected manuscript files; and
 8. runs `git diff --check` when executed inside a Git checkout.
 
 No dependency installation or network access occurs.
@@ -40,9 +40,9 @@ lanes used by `scripts/verify.sh`.
 
 ## Manuscript build
 
-The post-literature Version 2.1 manuscript is installed with its clean build
+The superseded post-literature Version 2.1 manuscript was installed with its clean build
 log, exact tool versions, PDF preflight, Version 2-to-2.1 mathematical
 preservation record, render comparison, changelog, and source-comparison record.
 Run the release gate with `REQUIRE_RELEASE_PAPER=1`; it rejects an incomplete
-canonical manuscript set. The independent final-manuscript audit is separate
-from file integrity and passes for the installed Version 2.1 files.
+manuscript set. The historical final-manuscript audit is separate from file
+integrity and does not approve the priority-corrected manuscript.

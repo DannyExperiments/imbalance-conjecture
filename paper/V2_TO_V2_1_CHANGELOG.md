@@ -1,12 +1,10 @@
-# Version 2 to Version 2.1 changelog
+# Version 2 to Version 2.1 changelog — historical, priority framing superseded
 
 ## Baseline integrity
 
-Version 2.1 was created as a new derivative of the immutable Version 2 archive. The baseline archive SHA-256 was verified before extraction:
-
-```text
-b311713693c8b82411795dbff09c43c541692ca7d16db2dcb896b990b1b02d1d
-```
+Version 2.1 was created as a new derivative of the immutable private Version 2
+archive. Its integrity was verified before extraction; the private archive
+filename and package hash are retained offline rather than published here.
 
 The Version 2 archive was not overwritten, modified in place, or redistributed inside this package.
 
@@ -20,9 +18,10 @@ The Version 2 archive was not overwritten, modified in place, or redistributed i
 
 4. All active comparison, scope, provenance, build, and scan records were regenerated to use the corrected bibliographic entries and five-gap accounting.
 
-## Status language preserved
+## Historical status language (now superseded)
 
-The following classification is unchanged:
+Version 2.1 contained the following classification, which is preserved here
+only as a historical quotation and is superseded by the priority correction:
 
 > A documented search through August 1, 2026 found no retrievable earlier complete solution for finite simple graphs. The main and strengthened results are therefore apparently new with moderate novelty confidence. Absolute historical priority is not claimed.
 
@@ -30,7 +29,7 @@ The manuscript and package continue to state that human specialist review and pr
 
 ## Mathematical preservation
 
-No theorem, lemma, proof, hypothesis, equation, inequality, example, equality classification, extension scope, or novelty classification changed.
+No theorem, lemma, proof, hypothesis, equation, inequality, example, equality classification, or extension scope changed between Versions 2 and 2.1. The historical novelty classification was later corrected after the Raoui and Schreib records were found.
 
 The automated Version 2-to-Version 2.1 comparison certified:
 

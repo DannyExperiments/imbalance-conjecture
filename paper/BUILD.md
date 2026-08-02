@@ -2,7 +2,13 @@
 
 ## Build status
 
-The Version 2.1 PDF was built without internet access from a fresh temporary directory. The same TeX/BibTeX toolchain used for Version 2 was retained.
+> The environment record below documents the historical Version 2.1 build.
+> The current priority-corrected build is recorded separately in
+> `BUILD_LOG_v1.1.0.txt` and `PDF_PREFLIGHT_v1.1.0.txt`.
+
+The Version 2.1 PDF was built without internet access from a fresh temporary directory. The same TeX/BibTeX toolchain used for Version 2 was retained. The
+Version 1.1 PDF was subsequently rebuilt by GitHub Actions using TeX Live 2026,
+latexmk 4.88, and pdfTeX 1.40.29.
 
 ## Actual environment used
 

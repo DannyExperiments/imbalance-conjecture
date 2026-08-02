@@ -1,0 +1,64 @@
+VERSION 1.1.0 PRIORITY-CORRECTED BUILD LOG
+============================================
+
+Version date: 2026-08-02
+Build service: GitHub Actions
+Workflow: .github/workflows/pdf.yml
+Workflow run: 30757660187
+Job: 91522528192
+Artifact name: manuscript-pdf
+Artifact ID: 8836452818
+Artifact ZIP SHA-256: 3fcbad2e1f0db411fcc0f89bdcc2808328d7d924e0f591ed33ce34f15fd38afe
+Network use by the TeX build: none
+TeX distribution: TeX Live 2026
+TeX orchestration: latexmk 4.88
+TeX engine: pdfTeX 3.141592653-2.6-1.40.29
+
+BUILD COMMAND
+-------------
+
+latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
+
+FINAL BUILD RESULT
+------------------
+
+Exit status: 0
+PDF pages: 15
+PDF size: 354,654 bytes
+PDF SHA-256: a1d689de2edc61dbbb946e597f1820a972a2ea71371b2ca1be456647a6b48473
+Page size: A4, 595.276 x 841.89 pt
+Undefined citations: 0
+Undefined references: 0
+Multiply defined labels: 0
+LaTeX warnings on final pass: 0
+BibTeX warnings on final pass: 0
+Overfull hboxes/vboxes: 0
+Underfull hboxes/vboxes: 0
+
+PRIORITY-CORRECTION RESULT
+--------------------------
+
+Raoui's earlier exact proof cited: YES
+Schreib's earlier Lean 4 formalization cited: YES
+First-solution claim absent: YES
+Headline-theorem novelty claim absent: YES
+Threshold-set priority claim absent: YES
+Additional-result novelty described as provisional: YES
+Human specialist review not obtained statement present: YES
+Present-proof formal-verification nonclaim present: YES
+
+PDF VALIDATION RESULT
+---------------------
+
+PDF preflight: PASS
+Searchable text: YES
+Encrypted: NO
+Forms: NONE
+JavaScript: NONE
+Suspect active content: NONE
+Visual inspection of all 15 pages at 150 dpi: PASS
+
+The checked-in paper/manuscript.pdf is the exact inspected artifact from the
+workflow run identified above. This record does not claim that later builds
+are byte-for-byte identical, because PDF creation metadata can vary with the
+build time.

@@ -1,17 +1,15 @@
-# Version 2 changelog
+# Version 2 changelog — historical, priority framing superseded
 
 > Historical baseline record. The source-faithfulness items in this file are
-> superseded by `V2_TO_V2_1_CHANGELOG.md`; Version 2.1 is the canonical public
-> manuscript.
+> superseded by `V2_TO_V2_1_CHANGELOG.md`; Version 2.1 was the canonical public
+> manuscript before the 2 August 2026 priority correction.
 
 ## Baseline
 
 Version 2 was created as a new derivative of the immutable audit-reconciled candidate:
 
-```text
-THE_IMBALANCE_CONJECTURE_PRIVATE_MANUSCRIPT_AUDIT_RECONCILED_2026-08-02.zip
-SHA-256: f995ec1020c813b6c02b07990931a0e5012a2041cd4a79a10f376fc024accef5
-```
+The private baseline package is retained offline. Its filename and hash are
+intentionally omitted from this public historical record.
 
 The frozen candidate was not overwritten or edited in place.
 

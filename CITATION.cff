@@ -1,14 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this research release, cite it using the metadata below."
-title: "The Imbalance Conjecture"
+message: "If you use this independent proof and its extensions, cite the priority-corrected release below and also consult the earlier Raoui proof."
+title: "Quantitative Erdos-Gallai Deficits for Edge-Imbalance Multisets"
 type: software
-version: 1.0.0
+version: 1.1.0
+date-released: 2026-08-02
 repository-code: "https://github.com/DannyExperiments/imbalance-conjecture"
 authors:
   - name: "DannyExperiments"
 preferred-citation:
   type: article
-  title: "The Imbalance Conjecture"
+  title: "Quantitative Erdos-Gallai Deficits for Edge-Imbalance Multisets"
   authors:
     - name: "DannyExperiments"
   year: 2026
@@ -19,3 +20,17 @@ keywords:
   - edge imbalance
   - Erdos-Gallai theorem
   - locally irregular graph
+references:
+  - type: article
+    title: "The Imbalance Conjecture"
+    authors:
+      - name: "A. A. Raoui"
+    year: 2026
+    doi: "10.5281/zenodo.20589431"
+  - type: software
+    title: "Lean 4 Formalization of the Imbalance Conjecture"
+    authors:
+      - name: "James Alexander Schreib"
+    version: "1.0.0"
+    year: 2026
+    doi: "10.5281/zenodo.21542164"

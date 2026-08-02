@@ -1,0 +1,84 @@
+VERSION 1.1.0 PRIORITY-CORRECTED PDF PREFLIGHT
+===============================================
+
+FILE
+----
+
+File: paper/manuscript.pdf
+SHA-256: a1d689de2edc61dbbb946e597f1820a972a2ea71371b2ca1be456647a6b48473
+File size: 354,654 bytes
+Pages: 15
+PDF version: 1.7
+Page size: 595.276 x 841.89 pt (A4)
+Rotation: 0
+Encrypted: no
+Forms: none
+JavaScript: no
+Suspect active content: no
+
+METADATA
+--------
+
+Title: Quantitative Erdős–Gallai Deficits for Edge-Imbalance Multisets
+Subject: An independent proof of the imbalance theorem, quantitative deficit bounds, equality classification, and a one-equal-edge extension
+Author: blank
+Creator: LaTeX with hyperref
+Producer: pdfTeX-1.40.29
+
+The source contains no author command. The metadata makes no claim of first
+proof, peer review, journal acceptance, DOI registration, or formal
+verification of the present argument.
+
+REFERENCES, WARNINGS, AND BOXES
+-------------------------------
+
+Undefined citations: 0
+Undefined references: 0
+Multiply defined labels: 0
+LaTeX warnings on final pass: 0
+BibTeX warnings on final pass: 0
+Overfull hboxes/vboxes: 0
+Underfull hboxes/vboxes: 0
+Unresolved markers: 0
+
+PRIORITY AND SCOPE CHECK
+------------------------
+
+Raoui DOI 10.5281/zenodo.20589431 present: yes
+Schreib DOI 10.5281/zenodo.21542164 present: yes
+Earlier-proof chronology present: yes
+First-solution or then-open-problem claim present: no
+Headline or threshold novelty claim present: no
+Extension novelty qualified as provisional: yes
+Human-specialist-review nonclaim present: yes
+Present-proof formal-verification nonclaim present: yes
+
+VISUAL INSPECTION
+-----------------
+
+The workflow artifact was rendered at 150 dpi. Every page was inspected for
+clipping, overlap, broken glyphs, malformed equations, displaced labels,
+accidental blank regions, and unreadable references.
+
+01 PASS - corrected title, four-sentence abstract, historical problem, Raoui
+   and Schreib chronology, and theorem framing are readable and unclipped.
+02 PASS - priority qualification, direct threshold-set bound, and notation are
+   balanced and legible.
+03 PASS - exact deficit identity and head-reserve derivation are legible.
+04 PASS - reserve completion and active-set definitions are legible.
+05 PASS - residual incidence, parity bound, convex estimate, and cross-payment
+   are legible.
+06 PASS - profile algebra and boundary cases are legible.
+07 PASS - independent graphicality deduction and quantitative section begin
+   cleanly.
+08 PASS - profile sharpening and equality theorem are legible.
+09 PASS - equality classification, target rigidity, and zero-edge transition
+   are legible.
+10 PASS - zero-edge setup and active-set details are readable.
+11 PASS - one-equal-edge theorem and exceptional profile are readable.
+12 PASS - single-head closure and corollaries are readable.
+13 PASS - reformulations, verification statement, and appendix are readable.
+14 PASS - counterpacket and computational appendix are readable.
+15 PASS - all references, including Raoui and Schreib, are readable.
+
+FINAL PREFLIGHT VERDICT: PASS

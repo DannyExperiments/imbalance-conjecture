@@ -1,12 +1,12 @@
-THE IMBALANCE CONJECTURE — VERSION 2.1 PDF TEXT REFERENCE SCAN
+HISTORICAL VERSION 2.1 PDF TEXT SCAN — PRIORITY FRAMING SUPERSEDED 2026-08-02
 ==============================================================
 
 Extraction tool: Poppler pdftotext 25.06.0
 Mode: layout-preserving extraction followed by whitespace normalization
 Pages extracted: 15
 
-REQUIRED ACTIVE TEXT
---------------------
+HISTORICAL TEXT VERIFIED AT THE TIME
+------------------------------------
 
 PASS — Exact MathOverflow title:
 Graphs with graphic imbalance sequences

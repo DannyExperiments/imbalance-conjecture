@@ -7,7 +7,7 @@ the manuscript's computation appendix. None is used in the symbolic proof.
   NetworkX regression lane for the residual counterpacket, top-set tie choices,
   trees, and head profiles.
 - `imbalance_extensions_verifier.py` and its `.log` are the original NetworkX
-  regression lane for the strengthened and one-zero statements.
+  regression lane for the quantitative and one-zero statements.
 - `imbalance_independent_referee_checker.py` and its `.log` are the
   dependency-free independent checker.
 - `imbalance_exhaustive_n7.cpp` and its `.log` are the independent exhaustive

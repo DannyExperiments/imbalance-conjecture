@@ -6,7 +6,8 @@
 PROOF_VALID: YES
 THRESHOLD_SET_THEOREM_VALID: YES
 TOP_THRESHOLD_THEOREM_VALID: YES
-IMBALANCE_CONJECTURE_RESOLVED: YES
+INDEPENDENT_PROOF_VALID: YES
+NEW_RESOLUTION_PRIORITY: NO — Raoui's earlier proof was identified after this no-internet audit.
 EXTENSION_THEOREMS_VALID: YES
 ONE_EQUAL_EDGE_EXTENSION_VALID: YES
 CERTIFIED_COUNTEREXAMPLE: NO
@@ -37,4 +38,3 @@ These computations are not used as proof of the universal theorem.
 ## Scope boundary
 
 The audit does not prove graphicality when two or more equal-degree edges are allowed. It does not solve the separate block-graph, line-graph, bicyclic, or locally irregular edge-coloring conjectures. Reformulations in terms of labeled realizations, b-factors, and incidence matrices are consequences, not independent proof obligations.
-

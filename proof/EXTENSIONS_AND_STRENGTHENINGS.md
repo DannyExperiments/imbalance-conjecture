@@ -22,7 +22,11 @@ D_G(S)=k(k-1)+\sum_{f\notin S}\min\{k,w(f)\}-\sum_{e\in S}w(e).
 If `S` consists of the top `k` imbalances, then `D_G(S)` is the usual sorted
 Erdős--Gallai deficit `Delta_k`.
 
-## 0. Threshold-set theorem: a stronger form of the proof
+## 0. Threshold-set theorem: the direct proof engine
+
+This nonnegativity statement is not claimed as a stronger conclusion than the
+headline graphicality theorem. It is established directly here before
+graphicality is deduced and provides the quantitative framework used below.
 
 ### Theorem 0
 

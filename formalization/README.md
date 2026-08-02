@@ -1,13 +1,26 @@
 # Formalization status
 
-No completed Lean, Isabelle, Coq, or Aristotle certificate is banked for the Imbalance Conjecture.
+This repository contains no completed Lean, Isabelle, Coq, or Aristotle
+certificate for its alternative proof, quantitative equality results, or
+one-equal-edge extension.
+
+The original Imbalance Conjecture does have an external Lean 4 formalization by
+James Alexander Schreib, published on 25 July 2026:
+<https://doi.org/10.5281/zenodo.21542164>. The archived source also proves the
+relevant Erdős--Gallai inequality for every edge subset. It predates this
+repository's formalization attempt and was inspected here, but not freshly
+rebuilt.
 
 An Aristotle Stage 1 attempt on 2 August 2026 ended at the platform time limit.
 It returned no completed certificate, so no theorem from that run is counted as
 formalized. See [`ARISTOTLE_STAGE1_STATUS.md`](ARISTOTLE_STAGE1_STATUS.md).
 
-The right first target is the arbitrary threshold-set theorem, not the equality or one-zero extensions. The main new obstacle beyond that theorem is that the pinned Mathlib 4.30.0 source inspected for this campaign does not contain an Erdos-Gallai or Havel-Hakimi realization theorem. A full kernel-checked solution therefore requires both the new threshold proof and a formal graphical-sequence realization theorem.
+Any future formalization effort for this repository should target the distinct
+quantitative slack, equality classification, or one-equal-edge extension, or
+formalize this alternative proof specifically. Reformalizing the bare headline
+theorem is no longer a useful priority target.
 
-`ARISTOTLE_STAGE1_PROMPT.md` requests only the threshold theorem and prohibits labeling a partial result as a formal proof of the full conjecture.
+`ARISTOTLE_STAGE1_PROMPT.md` is preserved as a historical prompt. It predates
+the discovery of Schreib's formalization and should not be relaunched unchanged.
 
 Formalization is optional corroboration and does not block public timestamping.

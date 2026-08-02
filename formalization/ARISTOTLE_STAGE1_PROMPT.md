@@ -1,4 +1,8 @@
-# Aristotle Stage 1 prompt
+# Aristotle Stage 1 prompt — historical and superseded
+
+> This prompt predates the discovery of Schreib's full Lean formalization,
+> DOI `10.5281/zenodo.21542164`. It is preserved for provenance and should not
+> be relaunched unchanged.
 
 Formalize the independently audited arbitrary threshold-set theorem from the attached Imbalance Conjecture packet in Lean 4.30.0 and pinned Mathlib commit `c5ea00351c28e24afc9f0f84379aa41082b1188f`.
 
@@ -48,4 +52,3 @@ lake env lean <axiom-audit-file>
 ```
 
 A clean Stage 1 threshold theorem is a successful partial formalization. It is not a formal proof of the full conjecture.
-

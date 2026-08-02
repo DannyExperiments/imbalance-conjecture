@@ -2,9 +2,9 @@
 
 | Claim | Evidence | Public wording |
 |---|---|---|
-| Arbitrary threshold-set theorem | Complete symbolic proof; independent adversarial reconstruction | Proved; AI-audited at high confidence |
+| Direct threshold-set bound | Complete symbolic proof; independent adversarial reconstruction | Proved here as an intermediate theorem; no novelty or strengthening claim |
 | Top-threshold theorem | Threshold theorem plus sorted specialization | Proved |
-| Imbalance Conjecture | First-failure reduction, parity, Erdos-Gallai | Proved; apparently new with moderate novelty confidence |
+| Imbalance theorem | First-failure reduction, parity, Erdős--Gallai | Independent proof; earlier exact proof by Raoui |
 | Quantitative slack | Symbolic profile inequalities and exact profile checks | Proved within audited scope |
 | Threshold equality classification | Symbolic proof and target checks | Proved; equality for the threshold theorem |
 | Zero-edge correction inequalities | Corrected symbolic argument and independent finite checks | Proved |
@@ -13,7 +13,6 @@
 | Incidence equation | Definition-level matrix reformulation | Standard reformulation |
 | Transferred degree inequalities | Application to a realizing graph | Immediate corollaries |
 | Independent computation | Python and C++ exact checkers | Corroborating, not proof |
-| Historical priority | Literature search with residual gaps | Apparently new; moderate confidence; no absolute claim |
+| Historical priority | Exact comparison with Raoui and Schreib | Headline and all-subset priority not claimed; extension priority unresolved |
 | Human peer review | None | Not obtained; not claimed |
-| Formal verification | None | Not obtained; not claimed |
-
+| Formal verification | Schreib's external Lean release; local Aristotle attempt | Original theorem externally formalized; this proof and its extensions are not kernel checked here |
