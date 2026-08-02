@@ -20,6 +20,7 @@ This directory is the sanitized public research surface. The separate private ev
 - `formalization/`: external Schreib-formalization notice and the historical
   local Aristotle attempt.
 - `audits/PRIORITY_CORRECTION_2026-08-02.md`: controlling priority correction.
+- `audits/EXTENSION_PRIORITY_SEARCH_2026-08-03.md`: focused priority comparison for the quantitative and structural extensions.
 - `release/V1.0.0_SUPERSESSION_NOTICE.md`: reason the original release must not
   receive the paper DOI.
 - `paper/`: priority-corrected manuscript source and PDF, checked-in `latexmkrc`,
